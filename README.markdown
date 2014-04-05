@@ -8,8 +8,9 @@ Preparations on Podio
 To run this sample you must have the Leads app installed on Podio. You can find this app in the  App Store here: https://podio.com/store/app/11236-leads. You can use another app, but then this example won't work "out of the box".
 
 Create an API key:
+
 1. Log into [Podio](https://podio.com) 
-2. Go to [Account](https://podio.com/settings/account) Settings in the My Account dropdown.  
+2. Go to [Account Settings](https://podio.com/settings/account) in the My Account dropdown.  
 3. Go to the API Keys tab and write a name and a domain for this app. 
 It’s recommended you set the domain to localhost:3000 or similar while you are developing.
 
@@ -19,6 +20,7 @@ Configuration
 Put your API key, secret, App ID in the appSettings section of Web.config. The App ID should be the ID of your instance of the Leads app.
 
 How to find the App ID:
+
 1. Go to your installed Leads app on Podio
 2. Click the wrench icon and select "Developers" 
 or  
