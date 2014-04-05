@@ -1,0 +1,1899 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Podio.NET</name>
+    </assembly>
+    <members>
+        <member name="P:PodioAPI.Exceptions.PodioException.Error">
+            <summary>
+            Response from the API
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Exceptions.PodioException.Status">
+            <summary>
+            Status code of the response
+            </summary>
+        </member>
+        <member name="T:PodioAPI.Exceptions.PodioError">
+            <summary>
+            Represent the error response from API
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.OrganizationLoginReport.Date">
+            <summary>
+            The start date of the week.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.OrganizationLoginReport.Total">
+            <summary>
+            The total number of users in the organization.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.OrganizationLoginReport.ActiveUser">
+            <summary>
+            The total number of users that logged in during the week.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.BulkDeleteRequest.ItemIds">
+            <summary>
+            An explicit list of item ids to be deleted
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.BulkDeleteRequest.ViewId">
+            <summary>
+            The id of the saved view whose items are to be deleted. Ignored if "item_ids" is given.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.BulkDeleteRequest.Filters">
+            <summary>
+            The filters to apply. Ignored if "item_ids" is given
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.CommentCreateUpdateRequest.Value">
+            <summary>
+            The comment to be made.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.CommentCreateUpdateRequest.ExternalId">
+            <summary>
+            The external id of the comment, if any
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.CommentCreateUpdateRequest.FieldIds">
+            <summary>
+            Temporary files that have been uploaded and should be attached to this comment.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.CommentCreateUpdateRequest.EmbedId">
+            <summary>
+            The id of an embedded link that has been created with the Add an embed operation in the Embed area.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.CommentCreateUpdateRequest.EmbedUrl">
+            <summary>
+            The url to be attached.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.CreateUpdateOptions.Silent">
+            <summary>
+            If set to true, no stream events and notifications will be generated. Default value: false
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.CreateUpdateOptions.Hook">
+            <summary>
+            True if hooks should be executed for the change, false otherwise. Default value: true
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterBase.SortBy">
+            <summary>
+            The sort order to use
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterBase.SortDesc">
+            <summary>
+            True to sort descending, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterBase.Filters">
+            <summary>
+            The filters to apply
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterBase.Limit">
+            <summary>
+            The maximum number of items to return
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterBase.Offset">
+            <summary>
+            The offset into the returned items
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ExportFilter.ViewId">
+            <summary>
+            The id of the view to use, 0 means last used view, blank means no view
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterByView.Limit">
+            <summary>
+            The maximum number of items to return, defaults to 30
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterByView.Offset">
+            <summary>
+            The offset into the returned items, defaults to 0
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterByView.Remember">
+            <summary>
+            True if the view should be remembered, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.FilterOptions.Remember">
+            <summary>
+            True if the view should be remembered, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ItemCreateUpdateRequest.Revision">
+            <summary>
+            Only used for update item
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Models.Application.Field``1">
+            <summary>
+            For application create and update only;
+            <para>Use the other overloads for retrival</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:PodioAPI.Models.ApplicationConfiguration.Type">
+            <summary>
+            The type of the app, either "standard" or "meeting"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.ApplicationConfiguration.Name">
+            <summary>
+            Name of the application. This is required on Application create.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.ApplicationConfiguration.ItemName">
+            <summary>
+            The name of each item in an app. This is required on Application create.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.ApplicationConfiguration.Usage">
+            <summary>
+            The usage information of the app.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.ApplicationConfiguration.Icon">
+            <summary>
+            The icon for the app. This is required on Application create.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.ApplicationConfiguration.DefaultView">
+            <summary>
+            The default view of the app items on the app main page. Possible values: badge, table, stream, calendar or card
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.AutoTask.Responsible">
+            <summary>
+            Only need to set the user_id property on Application create and update.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.BulkDeletionStatus.Deleted">
+            <summary>
+            List of item ids that have been deleted at this point
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.BulkDeletionStatus.Pending">
+            <summary>
+            List of remaining item ids to be deleted
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Contact.Avatar">
+            <summary>
+            The file id of the avatar
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FieldConfig.Description">
+            <summary>
+            The description of the field, shown to the user when inserting and editing.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FieldConfig.Mapping">
+            <summary>
+            The mapping of the field, one of "meeting_time", "meeting_participants", "meeting_agenda" and "meeting_location".
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FieldConfig.Label">
+            <summary>
+            Label of the field, This is required on Application create.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FieldConfig.Delta">
+            <summary>
+            An integer indicating the order of the field compared to other fields
+            </summary>
+        </member>
+        <member name="T:PodioAPI.Models.ItemReference">
+            <summary>
+            Used to returns the items that have a reference to the given item.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Recurrence.Name">
+            <summary>
+            The name of the recurrence, "weekly", "monthly" or "yearly"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Recurrence.Step">
+            <summary>
+            The step size, 1 or more
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Recurrence.Until">
+            <summary>
+            The latest date the recurrence should take place
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.RecurrenceConfig.Days">
+            <summary>
+            List of weekdays ("monday", "tuesday", etc) (for "weekly")
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.RecurrenceConfig.RepeatOn">
+            <summary>
+            When to repeat, "day_of_week" or "day_of_month" (for "monthly")
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Reminder.ReminderDelta">
+            <summary>
+            Minutes to remind before the due_date
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Models.Request.TaskCreateUpdateRequest.SetResponsible(System.Collections.Generic.IEnumerable{PodioAPI.Models.Ref})">
+            <summary>
+            Set a list of contact identifier objects
+            </summary>
+            <param name="reference">A list of contact identifier objects. supported contact identifier types: "user", "profile", "mail", "space", "external"</param>
+        </member>
+        <member name="M:PodioAPI.Models.Request.TaskCreateUpdateRequest.SetResponsible(PodioAPI.Models.Ref)">
+            <summary>
+            Set a list of contact identifier objects
+            </summary>
+            <param name="reference">A contactIdentifier. supported contact identifier types: "user", "profile", "mail", "space", "external"</param>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.Text">
+            <summary>
+            The text of the task
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.Description">
+            <summary>
+            The description of the task
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.Private">
+            <summary>
+            True if the task should be private, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.DueDate">
+            <summary>
+            The due date and time of the task, if any (in local time)
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.DueOn">
+            <summary>
+            The due date and time of the task, if any (in UTC)
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.FileIds">
+            <summary>
+            The list of files to attach to this task
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.Labels">
+            <summary>
+             The list of labels in text form
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.LabelIds">
+            <summary>
+            The list labels in id form
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.Reminder">
+            <summary>
+            Optional reminder on this task
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.Recurrence">
+            <summary>
+            The recurrence for the task, if any
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.ExternalId">
+            <summary>
+            Any external id for the task, if from another system
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.RefType">
+            <summary>
+            The reference type for the task. Only for task update operation
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.TaskCreateUpdateRequest.Id">
+            <summary>
+            The reference id for the task. Only for task update operation
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Podio.#ctor(System.String,System.String,PodioAPI.Utils.IAuthStore)">
+            <summary>
+            Initialize the podio class with Client ID and Client Secret
+            <para>You can get the Client ID and Client Secret from here: https://developers.podio.com/api-key </para>
+            </summary>
+            <param name="clientId">Client ID</param>
+            <param name="clientSecret">Client Secret</param>
+            <param name="authStore">If you need to persist the access tokens for a longer period (in your database or whereever), Implement IAuthStore Interface and pass it in. 
+            <para>By default it takes the SessionStore Implementation (Store access token is session). 
+            You can use the IsAuthenticated method to check if there is a stored access token already present</para></param>
+        </member>
+        <member name="M:PodioAPI.Podio.PrepareUrlWithOptions(System.String,PodioAPI.Models.Request.CreateUpdateOptions)">
+            <summary>
+            Transform options object to query parameteres
+            </summary>
+            <param name="url"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Podio.WriteToRequestStream(System.Object,System.Net.HttpWebRequest)">
+            <summary>
+            Write an object to request stream.
+            </summary>
+            <param name="obj"></param>
+            <param name="request">HttpWebRequest object of which request to write</param>
+        </member>
+        <member name="M:PodioAPI.Podio.EncodeAttributes(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Convert dictionay to to query string
+            </summary>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Podio.AddFileToRequestStream(System.String,System.String,System.Net.HttpWebRequest)">
+            <summary>
+            Add a file to request stream
+            </summary>
+            <param name="filePath">Physical path to file</param>
+            <param name="fileName">File Name</param>
+            <param name="request">HttpWebRequest object of which request stream file is added to</param>
+        </member>
+        <member name="M:PodioAPI.Podio.AuthenicateWithApp(System.Int32,System.String)">
+            <summary>Authenticate as an App (with AppId and AppSecret).
+            <para>Podio API Reference: https://developers.podio.com/authentication/username_password </para>
+            </summary> 
+        </member>
+        <member name="M:PodioAPI.Podio.AuthenicateWithPassword(System.String,System.String)">
+            <summary> Authenticate with username and password 
+            <para>suitable in situations where you only need data from a single app and do not wish authenticate as a specific user</para>
+            <para>Podio API Reference: https://developers.podio.com/authentication/username_password </para>
+            </summary> 
+        </member>
+        <member name="M:PodioAPI.Podio.AuthenicateWithAuthorizationCode(System.String,System.String)">
+            <summary> Authenticate with an authorization code
+            <para>Suitable in situations where you only need data from a single app and do not wish authenticate as a specific user</para>
+            <para>Podio API Reference: https://developers.podio.com/authentication/server_side </para>
+            </summary> 
+        </member>
+        <member name="M:PodioAPI.Podio.RefreshAccessToken">
+            <summary> Refresh the Access Token.
+            <para>When the access token expires, you can use this method to refresh your access, and gain another access_token</para>
+            <para>Podio API Reference: https://developers.podio.com/authentication </para>
+            </summary> 
+        </member>
+        <member name="M:PodioAPI.Podio.GetAuthorizeUrl(System.String)">
+            <summary>
+            Constructs the full url to Podio's authorization endpoint (To get AuthorizationCode in server-side flow)
+            </summary>
+            <param name="redirectUri">The redirectUri must be on the same domain as the domain you specified when you applied for your API Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Podio.IsAuthenticated">
+            <summary>
+            Check if there is a stored access token already present in AuthStore.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Podio.ClearAuth">
+            <summary>
+            Clear access token from AuthStore
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.ItemService">
+            <summary>
+            Provies all API methods in Item Area
+            <para>Podio API Reference: https://developers.podio.com/doc/items </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.FileService">
+            <summary>
+            Provies all API methods in Files Area
+            <para>Podio API Reference: https://developers.podio.com/doc/files </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.EmbedService">
+            <summary>
+            Provies all API methods in Embed Area
+            <para>https://developers.podio.com/doc/embeds</para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.ApplicationService">
+            <summary>
+            Provies all API methods in Embed Area
+            <para>https://developers.podio.com/doc/applications</para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.TaskService">
+            <summary>
+            Provies all API methods in Tasks Area
+            <para>https://developers.podio.com/doc/tasks</para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.StatusService">
+            <summary>
+            Provies all API methods in Status Area
+            <para>https://developers.podio.com/doc/status</para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.ContactService">
+            <summary>
+            Provies all API methods in Contact Area
+            <para>https://developers.podio.com/doc/contacts</para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.HookService">
+            <summary>
+            Provies all API methods in Hook Area
+            <para> https://developers.podio.com/doc/hooks </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.CommentService">
+            <summary>
+            Provies all API methods in Hook Area
+            <para> https://developers.podio.com/doc/hooks </para>
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetApp(System.Int32,System.String)">
+            <summary>
+            Gets the definition of an app and can include configuration and fields.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-app-22349 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="type">The type of the view of the app requested. Can be either "full", "short", "mini" or "micro". Default value: full</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.ActivateApp(System.Int32)">
+            <summary>
+            Activates a deactivated app. This puts the app back in the app navigator and allows insertion of new items.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/activate-app-43822 </para>
+            </summary>
+            <param name="appId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.DeactivateApp(System.Int32)">
+            <summary>
+            Deactivates the app with the given id. This removes the app from the app navigator, and disables insertion of new items.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/deactivate-app-43821 </para>
+            </summary>
+            <param name="appId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetAppsBySpace(System.Int32,System.Boolean)">
+            <summary>
+            Returns all the apps on the space that are visible. The apps are sorted by any custom ordering and else by name.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-apps-by-space-22478 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="includeInactive"> True if inactive apps should be included, false otherwise.Default value: false </param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetFeatures(System.Int32[],System.Boolean)">
+            <summary>
+            Returns the features that the given apps and optionally space includes.The current list of features are widgets, tasks, filters, forms, integration, items.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-features-43648 </para>
+            </summary>
+            <param name="appId"> A comma-separated list of app ids from which the features should be extracted </param>
+            <param name="includeSpace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetAppField(System.Int32,System.Int32)">
+            <summary>
+            Returns a single field from an app.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-app-field-22353 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="fieldId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetIconSuggestions(System.String)">
+            <summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-icon-suggestions-82045764 </para>
+            </summary>
+            <param name="query">Any search term to match.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetTopApps(System.Boolean,System.Int32)">
+            <summary>
+            Returns the top apps for the active user. This is the apps that the user have interacted with the most.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-top-apps-22476 </para>
+            </summary>
+            <param name="excludeDemo"> True if apps from demo workspace should be excluded, false otherwiseDefault value: false </param>
+            <param name="limit">  maximum number of apps to return Default value: 4 </param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetTopAppsForOrganization(System.Int32)">
+            <summary>
+            Returns the top apps for the user inside the given organization
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-top-apps-for-organization-1671395 </para>
+            </summary>
+            <param name="organizationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.DeleteApp(System.Int32)">
+            <summary>
+            Deletes the app with the given id. This will delete all items, widgets, filters and shares on the app. This operation is not reversible.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/delete-app-43693 </para>
+            </summary>
+            <param name="appId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.DeleteAppField(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Deletes a field on an app. When deleting a field any new items and updates to existing items will not have this field present. For existing items, the field will still be presented when viewing the item.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/delete-app-field-22355 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="fieldId"></param>
+            <param name="deleteValues"> True if the values for the fields should be deleted, false otherwise Default value: false </param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetAllUserApps(System.Int32[],System.Nullable{System.Int32},System.String,System.String,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Returns all the apps for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-all-user-apps-5902728 </para>
+            </summary>
+            <param name="excludeAppIds">The comma separated list of app_ids to exclude from the returned list.</param>
+            <param name="referenceableInOrg">ID of the Organization to filter apps by. Returns only apps the user can reference in that Organization.</param>
+            <param name="right">The right the user must have on the returned apps.</param>
+            <param name="text">Any search term that should either match the name of the app, the name of items in the app or the name of the workspace the app is in.</param>
+            <param name="excludeDemo">True if apps from demo workspace should be excluded, false otherwise Default value: false</param>
+            <param name="limit">The maximum number of apps to return Default value: 4</param>
+            <param name="order">The order to return the apps in.: score: Order by the  score of the app for the active user, name: Order by the name of the app. Default value: score</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetAppOnSpaceByURLLabel(System.Int32,System.String,System.String)">
+            <summary>
+            Returns the app on the given space with the given URL label.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-app-on-space-by-url-label-477105 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="UrlLabel"></param>
+            <param name="type">The type of the view of the app requested. Can be either "full", "short", "mini" or "micro". Default value: full</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetAppByOrgLabelSpaceLabelAndAppLabel(System.String,System.String,System.String)">
+            <summary>
+            Returns app based on the provided org_label, space_label and app_label.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-app-by-org-label-space-label-and-app-label-91708386 </para>
+            </summary>
+            <param name="orgLabel"></param>
+            <param name="spaceLabel"></param>
+            <param name="appLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.UpdateAppOrder(System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Updates the order of the apps on the space. It should post all the apps from the space in the order required.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/update-app-order-22463  </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="appIds"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.UpdateAppDescription(System.Int32,System.String)">
+            <summary>
+            Updates the app with a new description.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/update-app-description-33569973 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.UpdateAppUsageInstructions(System.Int32,System.String)">
+            <summary>
+            Updates the usage instructions for the app.
+            <para>Podio API Reference:https://developers.podio.com/doc/applications/update-app-usage-instructions-33570086 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="usage"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.InstallApp(System.Int32,System.Int32,System.String[])">
+            <summary>
+            Installs the app with the given id on the space.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/install-app-22506 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="spaceId"></param>
+            <param name="features">The features that should be installed with the app. Options are: filters, tasks, widgets, integration, forms, items. If the value is not given all but the "items" feature will be selected.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetCalculationsForApp(System.Int32)">
+            <summary>
+            Returns the list of possible calculations that can be done on related apps.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-calculations-for-app-773005 </para>
+            </summary>
+            <param name="appId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.AddNewApp(PodioAPI.Models.Application)">
+            <summary>
+            Creates a new app on a space.
+            <para>Podio API Reference:https://developers.podio.com/doc/applications/add-new-app-22351 </para>
+            </summary>
+            <param name="application"></param>
+            <returns>The id of the newly created app</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.AddNewAppField(System.Int32,PodioAPI.Models.ApplicationField)">
+            <summary>
+            Adds a new field to an app.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-app-field-22353 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="field"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.UpdateApp(PodioAPI.Models.Application)">
+            <summary>
+            Updates an app.
+            <para>The update can contain an new configuration for the app, addition of new fields as well as updates to the configuration of existing fields. Fields not included will not be deleted. 
+            To delete a field use the "delete field" operation</para>
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/update-app-22352 </para>
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.UpdateAnAppField(PodioAPI.Models.Application)">
+            <summary>
+            Updates the configuration of an app field. The type of the field cannot be updated, only the configuration.
+            <para>Supply the application object with AppId, and the field to be updated</para>
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/update-an-app-field-22356 </para>
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.UpdateAnAppField(System.Int32,System.Int32,PodioAPI.Models.FieldConfig)">
+            <summary>
+            Updates the configuration of an app field. The type of the field cannot be updated, only the configuration.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/update-an-app-field-22356 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="fieldId"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetAppDependencies(System.Int32)">
+            <summary>
+            Returns the apps that the given app depends on.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-app-dependencies-39159 </para>
+            </summary>
+            <param name="appId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ApplicationService.GetSpaceAppDependencies(System.Int32)">
+            <summary>
+            Returns all the active apps on the space along with their dependencies. The dependencies are only one level deep.
+            <para>Podio API Reference: https://developers.podio.com/doc/applications/get-space-app-dependencies-45779 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CommentService.DeleteComment(System.Int32)">
+            <summary>
+            Deletes a comment made by a user. This can be used to retract a comment that was made and which the user regrets.
+            <para>Podio API Reference: https://developers.podio.com/doc/comments/delete-a-comment-22347  </para>
+            </summary>
+            <param name="commentId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.CommentService.GetComment(System.Int32)">
+            <summary>
+            Returns the contents of a comment. It is not possible to see where the comment was made, only the comment itself.
+            <para>Podio API Reference: https://developers.podio.com/doc/comments/get-a-comment-22345 </para>
+            </summary>
+            <param name="commentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CommentService.GetCommentsOnObject(System.String,System.Int32)">
+            <summary>
+            Used to retrieve all the comments that have been made on an object of the given type and with the given id. It returns a list of all the comments sorted in ascending order by time created.
+            <para>Podio API Reference: https://developers.podio.com/doc/comments/get-comments-on-object-22371 </para>
+            </summary>
+            <param name="type"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CommentService.AddCommentToobject(System.String,System.Int32,System.String,System.String,System.Collections.Generic.List{System.Int32},System.String,System.Nullable{System.Int32},System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new comment to the object of the given type and id with no reference to other objects
+            <para>Podio API Reference: https://developers.podio.com/doc/comments/add-comment-to-object-22340 </para>
+            </summary>
+            <param name="type"></param>
+            <param name="id"></param>
+            <param name="text">The comment to be made</param>
+            <param name="externalId">The external id of the comment</param>
+            <param name="fieldIds">Temporary files that have been uploaded and should be attached to this comment</param>
+            <param name="embedUrl">The url to be attached</param>
+            <param name="embedId">The id of an embedded link that has been created with the Add an embed operation in the Embed area</param>
+            <param name="alertInvite">True if any mentioned user should be automatically invited to the workspace if the user does not have access to the object and access cannot be granted to the object. Default value: false</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CommentService.AddCommentToobject(System.String,System.Int32,PodioAPI.Models.Request.CommentCreateUpdateRequest,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new comment to the object of the given type and id, f.ex. item 1.
+            <para>Podio API Reference: https://developers.podio.com/doc/comments/add-comment-to-object-22340 </para>
+            </summary>
+            <param name="type"></param>
+            <param name="id"></param>
+            <param name="comment"></param>
+            <param name="alertInvite">True if any mentioned user should be automatically invited to the workspace if the user does not have access to the object and access cannot be granted to the object. Default value: false</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CommentService.UpdateComment(System.Int32,System.String,System.String,System.Collections.Generic.List{System.Int32},System.String,System.Nullable{System.Int32})">
+            <summary>
+            Updates an already created comment. This should only be used to correct spelling and grammatical mistakes in the comment.
+            <para>Podio API Reference: https://developers.podio.com/doc/comments/update-a-comment-22346 </para>
+            </summary>
+            <param name="commentId"></param>
+            <param name="text">The comment to be made</param>
+            <param name="externalId">The external id of the comment</param>
+            <param name="fieldIds">Temporary files that have been uploaded and should be attached to this comment</param>
+            <param name="embedUrl">The url to be attached</param>
+            <param name="embedId">The id of an embedded link that has been created with the Add an embed operation in the Embed area</param>
+        </member>
+        <member name="M:PodioAPI.Services.CommentService.UpdateComment(System.Int32,PodioAPI.Models.Request.CommentCreateUpdateRequest)">
+            <summary>
+            Updates an already created comment. This should only be used to correct spelling and grammatical mistakes in the comment.
+            </summary>
+            <param name="commentId"></param>
+            <param name="comment"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.CreateContact(System.Int32,PodioAPI.Models.Contact)">
+            <summary>
+            Creates a new space contact for use by everyone on the space.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/create-space-contact-65590 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="contact"></param>
+            <returns>profile_id of the created contact</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.UpdateContact(System.Int32,PodioAPI.Models.Contact)">
+            <summary>
+            Updates the contact with the given profile id.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/update-contact-60556 </para>
+            </summary>
+            <param name="profileId"></param>
+            <param name="contact"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.DeleteContacts(System.Int32[])">
+            <summary>
+            Deletes the contact(s) with the given id(s). It is currently only allowed to delete contacts of type "space".
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/delete-contact-s-60560 </para>
+            </summary>
+            <param name="profileIds"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetContactTotals">
+            <summary>
+            Returns the total number of contacts for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-contact-totals-v3-34629208 </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetSkills(System.String,System.Int32)">
+            <summary>
+            Returns the skills of related contacts, ordered by most frequently used.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-skills-1346872 </para>
+            </summary>
+            <param name="text"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetSpaceContactTotals(System.Int32)">
+            <summary>
+            Returns the total number of contacts on the space.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-space-contact-totals-67508 </para>
+            </summary>
+            <param name="SpaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetUserContact(System.Int32)">
+            <summary>
+            Returns the contact with the given user id.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetContactsByProfileId(System.Int32[],System.Nullable{System.Int32})">
+            <summary>
+            Returns all the contact details about the contact(s) with the given profile id(s).
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-contact-s-22335 </para>
+            </summary>
+            <param name="profileIds"></param>
+            <param name="spaceId">If set the role and removable property will be set in the context of the given space.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetAllContacts(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Used to get a list of contacts for the user.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-contacts-22400 </para>
+            </summary>
+            <param name="fields">A value for the required field. For text fields partial matches will be returned.</param>
+            <param name="contactType">The types of contacts to return, can be either "user" or "space". Separate by comma to get multiple types, or leave blank for all contacts. Default value: user</param>
+            <param name="externalId">The external id of the contact</param>
+            <param name="limit">The maximum number of contacts that should be returned</param>
+            <param name="offset">The offset to use when returning contacts</param>
+            <param name="required">A comma-separated list of fields that should exist for the contacts returned. Useful for only getting contacts with an email address or phone number.</param>
+            <param name="excludeSelf">True to exclude self, False to include self. Default value: true</param>
+            <param name="order">The order in which the contacts can be returned. See the area for details on the ordering options. Default value: name</param>
+            <param name="type">Determines the way the result is returned. Valid options are "mini" and "full". Default value: mini</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetOrganizationContacts(System.Int32,System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            UsedReturns all the profiles of the users contacts on the given organization. For the details of the possible return values, see the area.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-organization-contacts-22401 </para>
+            </summary>
+            <param name="orgId"></param>
+            <param name="fields">A value for the required field. For text fields partial matches will be returned.</param>
+            <param name="contactType">The types of contacts to return, can be either "user" or "space". Separate by comma to get multiple types, or leave blank for all contacts. Default value: user</param>
+            <param name="externalId">The external id of the contact</param>
+            <param name="limit">The maximum number of contacts that should be returned</param>
+            <param name="offset">The offset to use when returning contacts</param>
+            <param name="required">A comma-separated list of fields that should exist for the contacts returned. Useful for only getting contacts with an email address or phone number.</param>
+            <param name="excludeSelf">True to exclude self, False to include self. Default value: true</param>
+            <param name="order">The order in which the contacts can be returned. See the area for details on the ordering options. Default value: name</param>
+            <param name="type">Determines the way the result is returned. Valid options are "mini" and "full". Default value: mini</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetSpaceContacts(System.Int32,System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Returns all the profiles of the users contacts on the given space. For the details of the possible return values, see the area.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-space-contacts-22414 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="fields">A value for the required field. For text fields partial matches will be returned.</param>
+            <param name="contactType">The types of contacts to return, can be either "user" or "space". Separate by comma to get multiple types, or leave blank for all contacts. Default value: user</param>
+            <param name="externalId">The external id of the contact</param>
+            <param name="limit">The maximum number of contacts that should be returned</param>
+            <param name="offset">The offset to use when returning contacts</param>
+            <param name="required">A comma-separated list of fields that should exist for the contacts returned. Useful for only getting contacts with an email address or phone number.</param>
+            <param name="excludeSelf">True to exclude self, False to include self. Default value: true</param>
+            <param name="order">The order in which the contacts can be returned. See the area for details on the ordering options. Default value: name</param>
+            <param name="type">Determines the way the result is returned. Valid options are "mini" and "full". Default value: mini</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetSpaceContactsOnApp(System.Int32,System.Collections.Generic.Dictionary{System.String,System.String},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Returns all the space contacts referenced by the given app.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-space-contacts-on-app-79475279 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="fields">A value for the required field. For text fields partial matches will be returned.</param>
+            <param name="limit">The maximum number of contacts that should be returned</param>
+            <param name="offset">The offset to use when returning contacts</param>
+            <param name="order">The order in which the contacts can be returned. See the area for details on the ordering options. Default value: name</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetUserContactField(System.Int32,System.String)">
+            <summary>
+            Returns the value of a contact with the specific field. For the possible keys to use, see the area.
+            <para>Podio API Reference: https://developers.podio.com/doc/contacts/get-user-contact-field-22403 </para>
+            </summary>
+            <param name="userId"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.GetvCard(System.Int32)">
+            <summary>
+            Returns the vCard for the given contact.
+            <para>API Reference: https://developers.podio.com/doc/contacts/get-vcard-213496 </para>
+            </summary>
+            <param name="profileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ContactService.UpdateContactField(System.Int32,System.String,System.String)">
+            <summary>
+            Updates the given field on the given contact. Updates are currently only allowed from contacts of type "space".
+            <para>API Reference: https://developers.podio.com/doc/contacts/update-contact-field-60558 </para>
+            </summary>
+            <param name="profileId"></param>
+            <param name="key"></param>
+            <param name="value">The new value for the profile field.</param>
+        </member>
+        <member name="M:PodioAPI.Services.EmbedService.AddAnEmbed(System.String,System.String)">
+            <summary>
+            Grabs metadata and returns metadata for the given url such as title, description and thumbnails. 
+            <para>Podio API Reference : https://developers.podio.com/doc/embeds/add-an-embed-726483 </para>
+            </summary>
+            <param name="embedUrl">The absolute url of the link to fetch metadata for including protocol</param>
+            <param name="mode">"immediate" if the lookup should be performed immediately, before returning from the call, or "delayed" if the lookup can be performed delayed (optional, default is "immediate")</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.GetFile(System.Int32)">
+            <summary>
+            Returns the file with the given id
+            <para>Podio API Reference: https://developers.podio.com/doc/files/get-file-22451 </para>
+            </summary>
+            <param name="fileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.UploadFile(System.String,System.String)">
+            <summary>
+            Uploads a new file
+            <para>Podio API Reference: https://developers.podio.com/doc/files/upload-file-1004361 </para>
+            </summary>
+            <param name="filePath">Full physical path to the file</param>
+            <param name="fileName">File Name with extension</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.UpdateFile(System.Int32,System.String)">
+            <summary>
+            Used to update the description of the file.
+            <para>Podio API Reference: https://developers.podio.com/doc/files/update-file-22454 </para>
+            </summary>
+            <param name="fileId"></param>
+            <param name="description">The new description of the file</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.DeleteFile(System.Int32)">
+            <summary>
+            Deletes the file with the given id
+            <para>Podio API Reference: https://developers.podio.com/doc/files/delete-file-22453 </para>
+            </summary>
+            <param name="fileId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.ReplaceFile(System.Int32,System.Int32)">
+            <summary>
+            Marks the current file as an replacement for the old file. Only files with type of "attachment" can be replaced.
+            <para>Podio API Reference: https://developers.podio.com/doc/files/replace-file-22450 </para>
+            </summary>
+            <param name="oldFileId">The id of the old file that should be replacd with the new file</param>
+            <param name="fileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.AttachFile(System.Int32,System.String,System.Int32)">
+            <summary>
+            Attaches the uploaded file to the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/files/attach-file-22518 </para>
+            </summary>
+            <param name="fileId"></param>
+            <param name="refType">The type of object the file should be attached to. 
+            <para>Valid objects are "status", "item", "comment", "space", or "task".</para></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.CopyFile(System.Int32)">
+            <summary>
+            Copies the file, which makes it available for attaching to another object.
+            <para>Podio API Reference: https://developers.podio.com/doc/files/copy-file-89977 </para>
+            </summary>
+            <param name="fileId"></param>
+            <returns>The id of the newly created file</returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.GetFiles(System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Returns a list of all files matching the given filters and sorted by the specified attribute.
+            <para>Podio API Reference: https://developers.podio.com/doc/files/get-files-4497983 </para>
+            </summary>
+            <param name="attachedTo">The type of the entity the file is attached to. Can be one of {"item", "status", "task" and "space"}</param>
+            <param name="createdBy">The entities that created the file. See auth objects on the view area in Podio API documentation for details.</param>
+            <param name="createdOn">The from and to date the file was created between. For valid operations see date filtering under the view area in Podio API documentation.</param>
+            <param name="filetype">The type of the file. Can be one of {"image", "application", "video", "text", "audio"}.</param>
+            <param name="hostedBy">Which provider actually hosts the files. Currently can be one of {"podio", "google", "boxnet", "dropbox", "evernote", "live", "sharefile", "sugarsync", "yousendit"}.</param>
+            <param name="limit">The maximum number of files to return Default value: 20 </param>
+            <param name="sortBy">How the files should be sorted. Can be one of {"name", "created_on"} Default value: name</param>
+            <param name="sortDesc">true for to sort in descending order, false in ascending Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.GetFilesOnApp(System.Int32,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Returns all the files related to the items in the application. This includes files both on the item itself and in comments on the item.
+            <para>Podio API Reference: https://developers.podio.com/doc/files/get-files-on-app-22472 </para>
+            </summary>
+            <param name="appId">App Id</param>
+            <param name="attachedTo">The type of the entity the file is attached to. Can be one of {"item", "status", "task" and "space"}</param>
+            <param name="createdBy">The entities that created the file. See auth objects on the view area in Podio API documentation for details.</param>
+            <param name="createdOn">The from and to date the file was created between. For valid operations see date filtering under the view area in Podio API documentation.</param>
+            <param name="filetype">The type of the file. Can be one of {"image", "application", "video", "text", "audio"}.</param>
+            <param name="hostedBy">Which provider actually hosts the files. Currently can be one of {"podio", "google", "boxnet", "dropbox", "evernote", "live", "sharefile", "sugarsync", "yousendit"}.</param>
+            <param name="limit">The maximum number of files to return Default value: 20 </param>
+            <param name="offset">The offset to use when returning files to be used for pagination. Default value: 0</param>
+            <param name="sortBy">How the files should be sorted. Can be one of {"name", "created_on"} Default value: name</param>
+            <param name="sortDesc">true for to sort in descending order, false in ascending Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FileService.GetFilesOnSpace(System.Int32,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Returns all the files on the space order by the file name.
+            <para>Podio API Reference: https://developers.podio.com/doc/files/get-files-on-space-22471 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="attachedTo">The type of the entity the file is attached to. Can be one of {"item", "status", "task" and "space"}</param>
+            <param name="createdBy">The entities that created the file. See auth objects on the view area in Podio API documentation for details.</param>
+            <param name="createdOn">The from and to date the file was created between. For valid operations see date filtering under the view area in Podio API documentation.</param>
+            <param name="filetype">The type of the file. Can be one of {"image", "application", "video", "text", "audio"}.</param>
+            <param name="hostedBy">Which provider actually hosts the files. Currently can be one of {"podio", "google", "boxnet", "dropbox", "evernote", "live", "sharefile", "sugarsync", "yousendit"}.</param>
+            <param name="limit">The maximum number of files to return Default value: 20 </param>
+            <param name="offset">The offset to use when returning files to be used for pagination. Default value: 0</param>
+            <param name="sortBy">How the files should be sorted. Can be one of {"name", "created_on"} Default value: name</param>
+            <param name="sortDesc">true for to sort in descending order, false in ascending Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.HookService.CreateHook(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Create a new hook on the given object. See the area for details.
+            <para>Podio API Reference: https://developers.podio.com/doc/hooks/create-hook-215056 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="externalURL">The url of endpoint.</param>
+            <param name="type">The type of events to listen to, see the area for options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.HookService.DeleteHook(System.Int32)">
+            <summary>
+            Deletes the hook with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/hooks/delete-hook-215291 </para>
+            </summary>
+            <param name="hookId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.HookService.GetHooks(System.String,System.Int32)">
+            <summary>
+            Returns the hooks on the object.
+            <para>Podio API Reference: https://developers.podio.com/doc/hooks/get-hooks-215285 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.HookService.Verify(System.Int32)">
+            <summary>
+            Request the hook to be validated. This will cause the hook to send a request to the URL with the parameter "type" set to "hook.verify" and "code" set to the verification code. The endpoint must then call the validate method with the code to complete the verification.
+            <para>Podio API Reference: https://developers.podio.com/doc/hooks/request-hook-verification-215232 </para>
+            </summary>
+            <param name="hookId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.HookService.ValidateHookVerification(System.Int32,System.String)">
+            <summary>
+            Validates the hook using the code received from the verify call. On successful validation the hook will become active.
+            <para>Podio API Reference: https://developers.podio.com/doc/hooks/validate-hook-verification-215241 </para>
+            </summary>
+            <param name="hookId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.AddNewItem(System.Int32,PodioAPI.Models.Item,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new item to the given app.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/add-new-item-22362 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="item"></param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated</param>
+            <param name="hook">If set to false, hooks will not be executed for the change</param>
+            <returns>Id of the created item</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.UpdateItem(PodioAPI.Models.Item,System.Nullable{System.Int32},System.Boolean,System.Boolean)">
+            <summary>
+            Update an already existing item.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/update-item-22363 </para>
+            </summary>
+            <param name="item"></param>
+            <param name="revision">The revision of the item that is being updated. This is optional</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated</param>
+            <param name="hook">If set to false, hooks will not be executed for the change</param>
+            <returns>The id of the new revision / null if no change</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.UpdateItemFieldValues(PodioAPI.Models.Item,System.Boolean,System.Boolean)">
+            <summary>
+            Update the item values for a specific field.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/update-item-field-values-22367 </para>
+            </summary>
+            <param name="item"></param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated</param>
+            <param name="hook">If set to false, hooks will not be executed for the change</param>
+            <returns>The id of the new revision / null if no change</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.UpdateItemValues(PodioAPI.Models.Item,System.Boolean,System.Boolean)">
+            <summary>
+            Updates all the values for an item.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/update-item-values-22366 </para>
+            </summary>
+            <param name="item">Item with fields to be updated</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated</param>
+            <param name="hook">If set to false, hooks will not be executed for the change</param>
+            <returns>The id of the new revision / null if no change</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItem(System.Int32,System.Boolean)">
+            <summary> Returns the item with the specified id. 
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-item-22360 </para>
+            </summary> 
+            <param name="itemId"></param>
+            <param name="markedAsViewed">If true marks any new notifications on the given item as viewed, otherwise leaves any notifications untouched, Default value true</param>       
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemBasic(System.Int32,System.Boolean)">
+            <summary>
+            Gets the basic details about the given item. Similar to the full get item method, but only returns data for the item itself.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-item-basic-61768 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="markedAsViewed">If true marks any new notifications on the given item as viewed, otherwise leaves any notifications untouched, Default value true</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemByAppItemId(System.Int32,System.Int32)">
+            <summary> Returns the full item by its app_item_id, which is a unique ID for items per app.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-item-by-app-item-id-66506688 </para>
+            </summary> 
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemByExternalId(System.Int32,System.String)">
+            <summary>
+            Retrieve an app item with the given external_id.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-item-by-external-id-19556702 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="external_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.FilterItems(System.Int32,PodioAPI.Models.Request.FilterOptions)">
+            <summary>
+            Filters the items and returns the matching items.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/filter-items-4496747 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="filterOptions"></param>
+            <returns>Collection of matching items</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.FilterItems(System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Object,System.Nullable{System.Boolean},System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Filters the items and returns the matching items.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/filter-items-4496747 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="limit">The maximum number of items to return, defaults to 30</param>
+            <param name="offset">The offset into the returned items, defaults to 0</param>
+            <param name="filters">The filters to apply</param>
+            <param name="remember">True if the view should be remembered, false otherwise</param>
+            <param name="sortBy">The sort order to use</param>
+            <param name="sortDesc">True to sort descending, false otherwise</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemsAsXlsx(System.Int32,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.Int32,System.Boolean,System.String,System.Boolean,System.Nullable{System.Int32})">
+            <summary>
+            Returns the items in the Xlsx format.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-items-as-xlsx-63233 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="filters">The key with corresponding value to use for filtering the results</param>
+            <param name="limit">The maximum number of items to return Default value: 20</param>
+            <param name="offset">The offset from the start of the items returned</param>
+            <param name="deletedColumns">Wether to include deleted columns. Default value: false</param>
+            <param name="remember">If true the given view is remembered for the user, otherwise it is not. Default value: true</param>
+            <param name="sortBy">How the items should be sorted</param>
+            <param name="sortDesc">Use true to sort descending, use false to sort ascending Default value: true</param>
+            <param name="viewId">Applies the given view, if set to 0, the last used view will be used</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.BulkDeleteItems(System.Int32,PodioAPI.Models.Request.BulkDeleteRequest,System.Boolean)">
+            <summary>
+             Deletes items from a given app based in bulk and removes them from all views. The data can no longer be retrieved.
+             <para>Podio API Reference: https://developers.podio.com/doc/items/bulk-delete-items-19406111 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="deleteRequest"></param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated</param>
+            <returns>Collection of matching items</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.CloneItem(System.Int32,System.Boolean)">
+            <summary>
+            Clones the given item creating a new item with identical values in the same app.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/clone-item-37722742 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated</param>
+            <returns>The id of the cloned item</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.DeleteItem(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Deletes an item and removes it from all views. The item can no longer be retrieved. 
+            <para>Podio API Reference: https://developers.podio.com/doc/items/delete-item-22364 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated</param>
+            <param name="hook">If set to false, hooks will not be executed for the change</param>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.DeleteItemReference(System.Int32)">
+            <summary>
+            Removes the reference from the item if any
+            <para>Podio API Reference: https://developers.podio.com/doc/items/delete-item-reference-7302326 </para>
+            </summary>
+            <param name="itemId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.ExportItems(System.Int32,System.String,PodioAPI.Models.Request.ExportFilter)">
+            <summary>
+            Creates a batch for exporting the items.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/export-items-4235696 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="exporter">Valid exporters are currently "xls" and "xlsx"</param>
+            <param name="filter">The list of filters to apply</param>
+            <returns>The id of the batch created for this export</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.ExportItems(System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Object,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Creates a batch for exporting the items.
+            </summary>
+            <param name="appId"></param>
+            <param name="exporter">Valid exporters are currently "xls" and "xlsx"</param>
+            <param name="limit">The maximum number of items to export, if any</param>
+            <param name="offset">The offset into the list of items to export</param>
+            <param name="viewId">The id of the view to use, 0 means last used view, blank means no view</param>
+            <param name="filters">The list of filters to apply</param>
+            <param name="sortBy">The sorting order if not using predefined filter</param>
+            <param name="sortDesc">True if sorting should be descending, false otherwise</param>
+            <returns>The id of the batch created for this export</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.FilterItemsByView(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Retrieves the items in the app based on the given view.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/filter-items-by-view-4540284 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="viewId"></param>
+            <param name="limit">The maximum number of items to return, defaults to 30</param>
+            <param name="offset">The offset into the returned items, defaults to 0</param>
+            <param name="remember">True if the view should be remembered, defaults to false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetTopValuesByField(System.Int32,System.Int32,System.Int32[])">
+            <summary>
+            Returns the top possible values for the given field. This is currently only valid for fields of type "app".
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-top-values-for-field-68334 </para>
+            </summary>
+            <param name="fieldId"></param>
+            <param name="limit">The maximum number of results to return Default value: 13</param>
+            <param name="notItemIds">If supplied the items with these ids will not be returned</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetAppValues(System.Int32)">
+            <summary>
+            Used to get the distinct values for all items in an app. 
+            <para>Will return a list of the distinct item creators, as well as a list of the possible values for fields of type "state", "member", "app", "number", "calculation", "progress" and "question".</para>
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-app-values-22455 </para>
+            </summary>
+            <param name="appId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemFieldValues``1(System.Int32,System.Int32)">
+            <summary>
+            Returns the values for a specified field on an item in specified type.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-item-field-values-22368 </para>
+            </summary>
+            <typeparam name="T">Type of field. Response will be deserialized to this type</typeparam>
+            <param name="itemId"></param>
+            <param name="fieldId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemBasicByField(System.Int32,System.String)">
+            <summary>
+            Returns a preview of the item for referencing on the given field.
+            <para>Podio API Reference: https://developers.podio.com/doc/items/get-item-preview-for-field-reference-7529318 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="fieldId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemReferences(System.Int32)">
+            <summary>
+            Returns the items that have a reference to the given item. The references are grouped by app. Both the apps and the items are sorted by title.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-item-references-22439 </para>
+            </summary>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemCount(System.Int32)">
+            <summary>
+            Returns the number of items on app.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-item-count-34819997 </para>
+            </summary>
+            <param name="appId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetFieldRanges(System.Int32)">
+            <summary>
+            Returns the range for the given field. Only valid for fields of type "number", "calculation" and "money".
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-field-ranges-24242866 </para>
+            </summary>
+            <param name="fieldId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemValues(System.Int32)">
+            <summary>
+            Returns all the values for an item, with the additional data provided by the get item operation.
+            <para> Podio API Reference : https://developers.podio.com/doc/items/get-item-values-22365 </para>
+            </summary>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemRevision(System.Int32,System.Int32)">
+            <summary>
+            Returns all the revisions that have been made to an item.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-item-revision-22373 </para>
+            </summary>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemRevisions(System.Int32)">
+            <summary>
+            Returns all the revisions that have been made to an item.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-item-revisions-22372 </para>
+            </summary>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetMeetingUrl(System.Int32)">
+            <summary>
+            Gets the URL to join the given meeting. If the user is the organizer of the meeting, the meeting will be started and the URL will log in the user automatically.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-meeting-url-14763260 </para>
+            </summary>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.SetParticipation(System.Int32,System.String)">
+            <summary>
+            Updates the participation status for the active user on the item.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/set-participation-7156154 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="status">The new status, either "invited", "accepted", "declined" or "tentative"</param>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetReferencesToItemByField(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns all the references to the item from the given field.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-references-to-item-by-field-7403920 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="fieldId"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.UpdateItemReference(System.Int32,System.String,System.Int32)">
+            <summary>
+            Updates the reference on the item.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/update-item-reference-7421495 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="type">The type of the reference</param>
+            <param name="id">The id of the reference</param>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.RevertItemRevision(System.Int32,System.Int32)">
+            <summary>
+            Reverts the change done in the given revision. This restores the changes done between the given revision and the previous revision, overwriting any changes done on the same fields after the revision.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/revert-item-revision-953195 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="revisionId"></param>
+            <returns>The id of the new revision</returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.FindReferenceableItems(System.Int32,System.Int32,System.Int32[],System.String,System.String)">
+            <summary>
+            Used to find possible items for a given application field. It searches the relevant apps for items matching the given text.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-references-to-item-by-field-7403920 </para>
+            </summary>
+            <param name="fieldId"></param>
+            <param name="limit">The maximum number of results to return Default value: 13</param>
+            <param name="notItemIds">If supplied the items with these ids will not be returned</param>
+            <param name="sort">The ordering of the returned items. Can be either "created_on", "title" or blank for relevance ordering.</param>
+            <param name="text">The text to search for. The search will be lower case, and with a wildcard in each end.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemClone(System.Int32)">
+            <summary>
+            Return all the values cloned for an item.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-item-clone-96822231 </para>
+            </summary>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ItemService.GetItemRevisionDifference(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns the difference in fields values between the two revisions.
+            <para>Podio API Reference : https://developers.podio.com/doc/items/get-item-revision-difference-22374 </para>
+            </summary>
+            <param name="itemId"></param>
+            <param name="revisionFrom"></param>
+            <param name="revisionTo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.StatusService.GetStatusMessage(System.Int32)">
+            <summary>
+            Retrieves a status message by its id.
+            <para>Podio API Reference: https://developers.podio.com/doc/status/get-status-message-22337 </para>
+            </summary>
+            <param name="statusId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.StatusService.AddNewStatusMessage(System.Int32,System.String,System.Collections.Generic.List{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a new status message for a user on a specific space.
+            <para>Podio API Reference: https://developers.podio.com/doc/status/add-new-status-message-22336 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="text">The actual status message</param>
+            <param name="fileIds">Temporary files that have been uploaded and should be attached to this item</param>
+            <param name="embedId">The id of an embedded link that has been created with the Add an mebed operation in the Embed area</param>
+            <param name="embedUrl">The url to be attached</param>
+            <param name="questionText">The text of the question if any</param>
+            <param name="questionOptions">The list of answer options as strings</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.StatusService.UpdateStatusMessage(System.Int32,System.String,System.Collections.Generic.List{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            This will update an existing status message.
+            <para>Podio API Reference: https://developers.podio.com/doc/status/update-a-status-message-22338 </para>
+            </summary>
+            <param name="statusId"></param>
+            <param name="text">The actual status message</param>
+            <param name="fileIds">Temporary files that have been uploaded and should be attached to this item</param>
+            <param name="embedId">The id of an embedded link that has been created with the Add an mebed operation in the Embed area</param>
+            <param name="embedUrl">The url to be attached</param>
+        </member>
+        <member name="M:PodioAPI.Services.StatusService.DeleteStatusMessage(System.Int32)">
+            <summary>
+            This is used to delete a status message
+            <para>Podio API Reference: https://developers.podio.com/doc/status/delete-a-status-message-22339 </para>
+            </summary>
+            <param name="statusId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskSummary(System.Int32)">
+            <summary>
+            Returns the task summary for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/tasks/get-task-summary-1612017 </para>
+            </summary>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskSummaryForOrganization(System.Int32,System.Int32)">
+            <summary>
+            Returns the task summary for the organization for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/tasks/get-task-summary-for-organization-1612063 </para>
+            </summary>
+            <param name="orgId"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskSummaryForPersonal(System.Int32)">
+            <summary>
+            Returns the tasks summary for personal tasks and tasks on personal spaces and sub-orgs.
+            <para>Podio API Reference: https://developers.podio.com/doc/tasks/get-task-summary-for-personal-1657217 </para>
+            </summary>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskSummaryForReference(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns the task summary for the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/tasks/get-task-summary-for-reference-1657980 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskSummaryForSpace(System.Int32,System.Int32)">
+            <summary>
+            Returns the task summary for the given space for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/tasks/get-task-summary-for-space-1612130 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="limit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskCount(System.String,System.Int32)">
+            <summary>
+            Returns the total open tasks for the user on the reference.
+            <para>API Reference: https://developers.podio.com/doc/tasks/get-task-count-38316458 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetLabels">
+            <summary>
+            Returns the users task labels.
+            <para>API Reference: https://developers.podio.com/doc/tasks/get-labels-151534 </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTask(System.Int32)">
+            <summary>
+            Returns the task with the given id.
+            <para>API Reference: https://developers.podio.com/doc/tasks/get-task-22413 </para>
+            </summary>
+            <param name="taskId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskTotalsByTime(System.String,System.Int32)">
+            <summary>
+            Returns the total number of tasks for the given time.
+            <para>API Reference: https://developers.podio.com/doc/tasks/get-task-totals-by-time-5435062 </para>
+            </summary>
+            <param name="time">The valid values for time are: "overdue", "due", "today" and "all".</param>
+            <param name="spaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.IncompleteTask(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Mark the completed task as no longer being completed.
+            <para>API Reference: https://developers.podio.com/doc/tasks/incomplete-task-22433 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="hook">True if hooks should be executed for the change, false otherwise. Default value: true</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false</param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.CreateTask(PodioAPI.Models.Request.TaskCreateUpdateRequest,System.String,System.Nullable{System.Int32},System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new task
+            <para>API Reference: https://developers.podio.com/doc/tasks/create-task-22419 </para>
+            </summary>
+            <param name="task"></param>
+            <param name="refType">The valid types of objects are "item", "status", "app", "space" and "conversation".</param>
+            <param name="refId">Id of the reference</param>
+            <param name="hook">True if hooks should be executed for the change, false otherwise. Default value: true</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.CreateTask(System.String,System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Boolean,System.String,System.Nullable{System.Int32},System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new task with no reference to other objects.
+            <para>API Reference: https://developers.podio.com/doc/tasks/create-task-22419 </para>
+            </summary>
+            <param name="text">The text of the task</param>
+            <param name="dueDate">The due date and time of the task, if any (in local time)</param>
+            <param name="description">The description of the task</param>
+            <param name="responsible">user_id of the re</param>
+            <param name="isPrivate">True if the task should be private, default true</param>
+            <param name="refType">The valid types of objects are "item", "status", "app", "space" and "conversation".</param>
+            <param name="refId">Id of the reference</param>
+            <param name="hook">True if hooks should be executed for the change, false otherwise. Default value: true</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateTask(System.Int32,PodioAPI.Models.Request.TaskCreateUpdateRequest,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the task with the given attributes. Any attributes not specified will remain unchanged.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-task-10583674 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="task"></param>
+            <param name="hook">True if hooks should be executed for the change, false otherwise. Default value: true</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.DeleteTask(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Deletes the task with the given id.
+            <para>API Reference: https://developers.podio.com/doc/tasks/delete-task-77179 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="hook">True if hooks should be executed for the change, false otherwise. Default value: true</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false</param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.DeleteLabel(System.Int32)">
+            <summary>
+            Deletes the label with the given id. This will remove the label from all tasks.
+            <para>API Reference: https://developers.podio.com/doc/tasks/delete-label-151302 </para>
+            </summary>
+            <param name="labelId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.RankTask(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Ranks the task in comparision to one or two other tasks.
+            <para>API Reference: https://developers.podio.com/doc/tasks/rank-task-81015 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="beforeTaskId"></param>
+            <param name="afterTaskId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.RemoveTaskReference(System.Int32)">
+            <summary>
+            Deletes the reference on the task.
+            <para>API Reference: https://developers.podio.com/doc/tasks/remove-task-reference-6146114 </para>
+            </summary>
+            <param name="taskId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateLabel(System.Int32,System.String,System.String)">
+            <summary>
+            Updates the label with the given id.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-label-151289 </para>
+            </summary>
+            <param name="labelId"></param>
+            <param name="text">The name of the new label</param>
+            <param name="color">The color of the label in hex format (xxxxxx)</param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateTaskDescription(System.Int32,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the description of the task.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-task-description-76982 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="description"></param>
+            <param name="hook"></param>
+            <param name="silent"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateTaskPrivate(System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Update the private flag on the given task.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-task-private-22434 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="isPrivate">True if the task should be private, false otherwise</param>
+            <param name="hook"></param>
+            <param name="silent"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateTaskText(System.Int32,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the text of the task.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-task-text-22428 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="text">The new text of the task</param>
+            <param name="hook"></param>
+            <param name="silent"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateTaskDueOn(System.Int32,System.DateTime,System.DateTime,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the due on property on the task.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-task-due-on-3442633 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="dueOn">The date and time the task is due (in UTC)</param>
+            <param name="dueDateTime">The date and time the task is due (in local date and time)</param>
+            <param name="hook"></param>
+            <param name="silent"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateTaskLabels(System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Updates the task with new labels.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-task-labels-151769 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="labelIds"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.UpdateTaskReference(System.Int32,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Attached this task to an object. If the task is already attached to an object, it will be detached from that object and reattached on the new object.
+            <para>API Reference: https://developers.podio.com/doc/tasks/update-task-reference-170733 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="hook"></param>
+            <param name="silent"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTasks(System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.String,System.Boolean,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Returns a list of all tasks matching the given filters and grouped by the specified group.
+            <para>API Reference: https://developers.podio.com/doc/tasks/get-tasks-77949 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="completed">True to only return completed tasks, False to return open tasks.</param>
+            <param name="completedBy">The entities that completed the task.</param>
+            <param name="completedOn">The from and to date the task should be completed between.</param>
+            <param name="createdBy">The entities that created the task.</param>
+            <param name="createdOn">The from and to date the task should be created between.</param>
+            <param name="createdVia">The id of the client the task was created via.</param>
+            <param name="dueDate">The from and to date the task should be due between.</param>
+            <param name="externalId">The external id of the task.</param>
+            <param name="files">True if there should be files on the task, False if there should be no files on the task, leave out for no restriction.</param>
+            <param name="grouping">The grouping to use. Valid options are "due_date", "created_by", "responsible", "app",  "space" and "org".</param>
+            <param name="label">The id of the a required label on the tasks.</param>
+            <param name="limit">The maximum number of tasks to return.</param>
+            <param name="offset">The offset into the tasks to return. Default value: 0</param>
+            <param name="org">The ids of the orgs the tasks are related to.</param>
+            <param name="reassigned">True to only return tasks the active user has assigned to someone else, false to only return tasks that the active user has not assigned to someone else.</param>
+            <param name="reference">The list of references on the form "type:id" separated by semi-colon.</param>
+            <param name="responsible">The user ids that are responsible for the task.</param>
+            <param name="sort_by">The sort order of the tasks returned. Either "created_on", "completed_on" or "rank". Default value: rank</param>
+            <param name="sortDesc">true if tasks should be sorted descending, false otherwise.Default value: false</param>
+            <param name="space">The ids of the spaces the tasks are related to.</param>
+            <param name="view">The level of information to return. Setting to "full" will return the full task as specific on the get task operation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.GetTaskTotals(System.Int32[])">
+            <summary>
+            Get the totals for the users active tasks.
+            <para>API Reference: https://developers.podio.com/doc/tasks/get-task-totals-v2-83590 </para>
+            </summary>
+            <param name="spaceIds">An optional list space ids separated by semi-colon, which will limit the totals to the given spaces.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.CreateLabel(System.String,System.String)">
+            <summary>
+            Creates a new personal label for the user.
+            <para>API Reference: https://developers.podio.com/doc/tasks/create-label-151265 </para>
+            </summary>
+            <param name="text">The name of the new label.</param>
+            <param name="color">The color of the label in hex format (xxxxxx).</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.CompleteTask(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Mark the given task as completed.
+            <para>API Reference: https://developers.podio.com/doc/tasks/complete-task-22432 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="hook">True if hooks should be executed for the change, false otherwise. Default value: true.</param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TaskService.AssignTask(System.Int32,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Assigns the task to another user. This makes the user responsible for the task and its completion.
+            <para>API Reference: https://developers.podio.com/doc/tasks/assign-task-22412 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false.</param>
+            <param name="responsible">The contact responsible (user_id), or null if no one should be responsible.</param>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.AppReferenceApplicationField.ReferenceableTypes">
+            <summary>
+            List of ids of the apps that can be referenced.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationApplicationField.Unit">
+            <summary>
+            The unit of the result, if any
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationApplicationField.Decimals">
+            <summary>
+            The number of decimals displayed
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.Type">
+            <summary>
+            The type of expression, can be "field", "number", "reference", "outgoing_reference", "multiply", "divide", "plus" and "minus"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.FieldId">
+            <summary>
+            The id of the field to receive the value from. only when type is "field"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.Number">
+            <summary>
+            The id of the field to receive the value from, only when type is "number"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.ReferenceField_id">
+            <summary>
+            The app reference field, only when type is "reference" , "outgoing_reference"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.ValueFieldId">
+            <summary>
+            The id of the value field on the related app
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.Aggregation">
+            <summary>
+             The aggregation of the related item, either "sum", "average", "min", "max" and "count"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.Left">
+            <summary>
+            The left part of the operation, Only when type is multiply, divide, plus, minus
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CalculationExpression.Right">
+            <summary>
+            The right part of the operation , Only when type is multiply, divide, plus, minus
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CategoryApplicationField.Options">
+            <summary>
+            The list of options for the category
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CategoryApplicationField.Multiple">
+            <summary>
+            True if multiple options should be allowed, False otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.CategoryApplicationField.Display">
+            <summary>
+            The way the options are displayed on the item, one of "inline", "list" or "dropdown"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.ContactApplicationField.ContactType">
+            <summary>
+            "type": The type of contacts this field allows. 
+            <para>One of "space_users" (only members of the workspace), "all_users", "space_contacts" or "space_users_and_contacts" (deprecated)</para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.DateApplicationField.Calendar">
+            <summary>
+            True if the items should show up in the calendar, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.DateApplicationField.End">
+            <summary>
+            End date:  is either "disabled", "enabled" or "required"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.DateApplicationField.Time">
+            <summary>
+            Time component: is either "disabled", "enabled" or "required"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.FileApplicationField.AllowedMimetypes">
+            <summary>
+            A list of allowed mimetypes on the form "image/png" or "image/*"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.MoneyApplicationField.AllowedCurrencies">
+            <summary>
+            List of allowed currencies. 
+            <para>The currencies must be a valid ISO 3166-1 currency (http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) represented by 3 letters in uppercase.</para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.NumericApplicationField.Decimals">
+            <summary>
+            The number of decimals displayed
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.QuestionApplicationField.Options">
+            <summary>
+            The list of options for the question
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.QuestionApplicationField.Multiple">
+            <summary>
+            True if multiple options should be allowed, False otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ApplicationFields.TextApplicationField.Size">
+            <summary>
+            Size of the input field, either "small" or "large"
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Utils.IAuthStore.Get">
+            <summary>
+            Get PodioOAuth object from store
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Utils.IAuthStore.Set(PodioAPI.Utils.PodioOAuth)">
+            <summary>
+            Store PodioOAuth object from store
+            </summary>
+            <param name="podioOAuth"></param>
+        </member>
+        <member name="M:PodioAPI.Utils.IAuthStore.Distroy">
+            <summary>
+            Remove PodioOAuth from store
+            </summary>
+        </member>
+        <member name="T:PodioAPI.Utils.PodioOAuth">
+            <summary>
+            Authenication response form API
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Utils.ItemFields.ContactItemField.ContactIds">
+            <summary>
+            The profile_id's of the contacts
+            </summary>
+        </member>
+    </members>
+</doc>
