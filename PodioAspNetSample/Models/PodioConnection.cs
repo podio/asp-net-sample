@@ -33,6 +33,7 @@ namespace PodioAspNetSample.Models
             if (string.IsNullOrEmpty(ClientId) || string.IsNullOrEmpty(ClientSecret))
                 throw new Exception("ClientId and ClientSecret not set. Please set that in Web.config");
 
+            // Set RedirectUrl to /Authorization/HandleAuthorizationResponse action. To use in server side auth flow
             UrlHelper urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
             RedirectUrl = urlHelper.Action("HandleAuthorizationResponse", "Authorization", new object { }, "http");
         }
