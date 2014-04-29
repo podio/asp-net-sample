@@ -106,7 +106,7 @@
                                             <td>
                                                 @if (item.NextFollowUp != null)
                                                 {
-                                                    @item.NextFollowUp.Value.ToString("dd/MM/yyyy")
+                                                    @item.NextFollowUp.Value.ToString("MM/dd/yyyy")
                                                 }
                                             </td>
                                             <td>@Html.ActionLink("Edit", "Edit", "Leads", new { Id = item.PodioItemID }, new { @class = "edit_button" })</td>
@@ -130,7 +130,7 @@
     <script src="/Scripts/bootstrap/bootstrap-datepicker.js"></script>
     <script>
         var checkin = jQuery('#NextFollowUpFrom,#NextFollowUpTo').datepicker({
-            format: 'dd/mm/yyyy'
+            format: 'mm/dd/yyyy'
         });
         jQuery.validator.methods["date"] = function (value, element) { return true; }
     </script>
