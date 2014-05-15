@@ -51,7 +51,7 @@ namespace PodioAspNetSample.Models
            */
             var sessionAuthStore = new SessionAuthStore();
 
-            var podio = new Podio(ClientId, ClientSecret);
+            var podio = new Podio(ClientId, ClientSecret, sessionAuthStore);
             return podio;
         }
     }

@@ -145,7 +145,6 @@
     </Compile>
     <Compile Include="Models\Lead.cs" />
     <Compile Include="Models\PodioConnection.cs" />
-    <Compile Include="Models\SessionAuthStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\UsernamePasswordAuthenticationAuthenticationViewModel.cs" />
     <Compile Include="ViewModels\LeadListingViewModel.cs" />
