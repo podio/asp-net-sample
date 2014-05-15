@@ -19,6 +19,111 @@
             Represent the error response from API
             </summary>
         </member>
+        <member name="P:PodioAPI.Models.Form.FormId">
+            <summary>
+            The id of the form
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.AppId">
+            <summary>
+            The id of the app the form belongs to
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.SpaceId">
+            <summary>
+            The id of the space the form belongs to
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.Status">
+            <summary>
+            Either "active" or "disabled"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.Settings">
+            <summary>
+            The settings of the form
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.Domains">
+            <summary>
+            The list of domains where the form can be used
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.Attachments">
+            <summary>
+            True if attachments are allowed, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.fieldIds">
+            <summary>
+            The ids for each active field
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Form.Fields">
+            <summary>
+            The id and any form specific settings for each active field
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormField.FieldId">
+            <summary>
+            The id of the field
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormField.FormFieldSettings">
+            <summary>
+            Any settings of the field which depends on the type of the field. See area for more information
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormFieldSettings.ContactFieldTypes">
+            <summary>
+            See contact area for a list of all supported contact field types
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettings.Captcha">
+            <summary>
+            True if captcha is enabled, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettings.Text">
+            <summary>
+            The texts used for the form
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettings.Color">
+            <summary>
+            The colors for the form in the form "#xxxxxx"
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettings.Theme">
+            <summary>
+            The theme to use, for a list of valid themes see the area
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettings.Css">
+            <summary>
+            Optional inline css to include in the form
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettingsText.Heading">
+            <summary>
+            A heading to display when the webform is not embedded (OPTIONAL)
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettingsText.Description">
+            <summary>
+            An explanatory text to display when the webform is not embedded (OPTIONAL)
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettingsText.Submit">
+            <summary>
+            The text for the submit button
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.FormSettingsText.Success">
+            <summary>
+            The text when the form was successfully submitted
+            </summary>
+        </member>
         <member name="P:PodioAPI.Models.OrganizationLoginReport.Date">
             <summary>
             The start date of the week.
@@ -172,6 +277,36 @@
         <member name="P:PodioAPI.Models.Request.FilterOptions.Remember">
             <summary>
             True if the view should be remembered, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ImportMappingContactField.FieldKey">
+            <summary>
+            The key for the field on the contact
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ImportMappingContactField.Unique">
+            <summary>
+            True of the value for the field is unique, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ImportMappingContactField.ColumnId">
+            <summary>
+            The id of the column to be used for the given field
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ImportMappingField.FieldId">
+            <summary>
+            The id of the field in the app
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ImportMappingField.Unique">
+            <summary>
+            True of the values for the field is unique, false otherwise
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ImportMappingField.Value">
+            <summary>
+            Which value should be mapped for the field, depends on the type of field
             </summary>
         </member>
         <member name="P:PodioAPI.Models.Request.ItemCreateUpdateRequest.Revision">
@@ -422,16 +557,51 @@
             The reference id for the task. Only for task update operation
             </summary>
         </member>
-        <member name="M:PodioAPI.Podio.#ctor(System.String,System.String,PodioAPI.Utils.IAuthStore)">
+        <member name="P:PodioAPI.Models.Request.ViewCreateUpdateRequest.Name">
+            <summary>
+            The name of the new view.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ViewCreateUpdateRequest.Private">
+            <summary>
+            True if the view is private to the creator, otherwise it is public (defaults to false).
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ViewCreateUpdateRequest.SortBy">
+            <summary>
+            How the sorting should be, see the area for details.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ViewCreateUpdateRequest.SortDesc">
+            <summary>
+            True if sorting should be descending, false otherwise.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ViewCreateUpdateRequest.Filters">
+            <summary>
+            The filters on the view.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ViewCreateUpdateRequest.Layout">
+            <summary>
+            The layout used, see the app area for details.
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Models.Request.ViewCreateUpdateRequest.Fields">
+            <summary>
+            Any specific settings for fields.
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Podio.#ctor(System.String,System.String,PodioAPI.Utils.Authentication.IAuthStore,System.Net.WebProxy)">
             <summary>
             Initialize the podio class with Client ID and Client Secret
             <para>You can get the Client ID and Client Secret from here: https://developers.podio.com/api-key </para>
             </summary>
             <param name="clientId">Client ID</param>
             <param name="clientSecret">Client Secret</param>
-            <param name="authStore">If you need to persist the access tokens for a longer period (in your database or whereever), Implement IAuthStore Interface and pass it in. 
-            <para>By default it takes the SessionStore Implementation (Store access token is session). 
-            You can use the IsAuthenticated method to check if there is a stored access token already present</para></param>
+            <param name="authStore">If you need to persist the access tokens for a longer period (in your session, database or whereever), Implement PodioAPI.Utils.IAuthStore Interface and pass it in. 
+            <para> You can use the IsAuthenticated method to check if there is a stored access token already present</para></param>
+            <param name="proxy">To set proxy to HttpWebRequest</param>
         </member>
         <member name="M:PodioAPI.Podio.PrepareUrlWithOptions(System.String,PodioAPI.Models.Request.CreateUpdateOptions)">
             <summary>
@@ -463,28 +633,37 @@
             <param name="fileName">File Name</param>
             <param name="request">HttpWebRequest object of which request stream file is added to</param>
         </member>
-        <member name="M:PodioAPI.Podio.AuthenicateWithApp(System.Int32,System.String)">
-            <summary>Authenticate as an App (with AppId and AppSecret).
+        <member name="M:PodioAPI.Podio.AuthenticateWithApp(System.Int32,System.String)">
+            <summary>
+            Authenticate as an App (with AppId and AppSecret)
+            <para>Podio API Reference: https://developers.podio.com/authentication/app_auth </para>
+            </summary>
+            <param name="appId">AppId</param>
+            <param name="appToken">AppToken</param>
+            <returns>PodioOAuth object with OAuth data</returns>
+        </member>
+        <member name="M:PodioAPI.Podio.AuthenticateWithPassword(System.String,System.String)">
+            <summary> Authenticate with username and password
             <para>Podio API Reference: https://developers.podio.com/authentication/username_password </para>
             </summary> 
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns>PodioOAuth object with OAuth data</returns>
         </member>
-        <member name="M:PodioAPI.Podio.AuthenicateWithPassword(System.String,System.String)">
-            <summary> Authenticate with username and password 
-            <para>suitable in situations where you only need data from a single app and do not wish authenticate as a specific user</para>
-            <para>Podio API Reference: https://developers.podio.com/authentication/username_password </para>
-            </summary> 
-        </member>
-        <member name="M:PodioAPI.Podio.AuthenicateWithAuthorizationCode(System.String,System.String)">
+        <member name="M:PodioAPI.Podio.AuthenticateWithAuthorizationCode(System.String,System.String)">
             <summary> Authenticate with an authorization code
-            <para>Suitable in situations where you only need data from a single app and do not wish authenticate as a specific user</para>
             <para>Podio API Reference: https://developers.podio.com/authentication/server_side </para>
-            </summary> 
+            </summary>
+            <param name="authorizationCode"></param>
+            <param name="redirectUri"></param>
+            <returns>PodioOAuth object with OAuth data</returns>
         </member>
         <member name="M:PodioAPI.Podio.RefreshAccessToken">
             <summary> Refresh the Access Token.
             <para>When the access token expires, you can use this method to refresh your access, and gain another access_token</para>
             <para>Podio API Reference: https://developers.podio.com/authentication </para>
             </summary> 
+            <returns>PodioOAuth object with OAuth data</returns>
         </member>
         <member name="M:PodioAPI.Podio.GetAuthorizeUrl(System.String)">
             <summary>
@@ -495,7 +674,7 @@
         </member>
         <member name="M:PodioAPI.Podio.IsAuthenticated">
             <summary>
-            Check if there is a stored access token already present in AuthStore.
+            Check if there is a stored access token already present.
             </summary>
             <returns></returns>
         </member>
@@ -600,6 +779,101 @@
             Provies all API methods in Search area
             <para> https://developers.podio.com/doc/search </para>
             </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.RatingService">
+            <summary>
+            Provies all API methods in Rating Area
+            <para> https://developers.podio.com/doc/ratings </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.TagService">
+            <summary>
+            Provies all API methods in Tag Area
+            <para> https://developers.podio.com/doc/tags </para>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:PodioAPI.Podio.BatchService" -->
+        <member name="P:PodioAPI.Podio.ActionService">
+            <summary>
+            Provies all API methods in Actions area
+            <para> https://developers.podio.com/doc/actions </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.CalendarService">
+            <summary>
+            Provies all API methods in Calendar Area
+            <para> https://developers.podio.com/doc/calendar </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.ConversationService">
+            <summary>
+            Provies all API methods in Conversations area
+            <para> https://developers.podio.com/doc/conversations </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.NotificationService">
+            <summary>
+            Provies all API methods in Notifications area
+            <para> https://developers.podio.com/doc/notifications </para>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:PodioAPI.Podio.ReminderService" -->
+        <member name="P:PodioAPI.Podio.RecurrenceService">
+            <summary>
+            Provies all API methods in Recurrence Area
+            <para> https://developers.podio.com/doc/recurrence </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.ImporterService">
+            <summary>
+            Provies all API methods in Importer area
+            <para> https://developers.podio.com/doc/importer </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.QuestionService">
+            <summary>
+            Provies all API methods in Question Area
+            <para> https://developers.podio.com/doc/questions </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.SubscriptionService">
+            <summary>
+            Provies all API methods in Subscriptions area
+            <para> https://developers.podio.com/doc/subscriptions </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.UserService">
+            <summary>
+            Provies all API methods in User Area
+            <para> https://developers.podio.com/doc/users </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.FormService">
+            <summary>
+            Provies API methods in Forms area
+            <para> https://developers.podio.com/doc/forms </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.AppMarketService">
+            <summary>
+            Provies all API methods in  AppMarket Area
+            <para> https://developers.podio.com/doc/app-store </para>
+            </summary>       
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:PodioAPI.Podio.ViewService" -->
+        <member name="P:PodioAPI.Podio.IntegrationService">
+            <summary>
+            Provies all API methods in Integrations area
+            <para> https://developers.podio.com/doc/integrations </para>
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Services.ActionService.GetAction(System.Int32)">
+            <summary>
+            Returns the action with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/actions/get-action-1701120 </para>
+            </summary>
+            <param name="actionId"></param>
+            <returns></returns>
         </member>
         <member name="M:PodioAPI.Services.ApplicationService.GetApp(System.Int32,System.String)">
             <summary>
@@ -826,6 +1100,266 @@
             <param name="spaceId"></param>
             <returns></returns>
         </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetCategories(System.Boolean)">
+            <summary>
+            Returns the categories available in the system.
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-categories-37009 </para>
+            </summary>
+            <param name="only_used"> If true, returns only categories that are used by shares in the active users language. If false, all categories are returned.Default value: true </param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetOrgsWithPrivateShares">
+            <summary>
+            Returns all the orgs, that the user is member of, and that has shared private apps.
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-orgs-with-private-shares-211715 </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetOwnShares(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns all the apps that the active user has shared.
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-own-shares-38645 </para>
+            </summary>
+            <param name="type">The type of shares to return, either "app" or "pack", leave out for all shares</param>
+            <param name="limit">The maximum number of results to return Default value: 6</param>
+            <param name="offset">The offset into the returned results Default value: 0</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetRecommendedShares(System.String,System.String)">
+            <summary>
+            Returns the recommended apps in the app market for the given "area". Current areas are: "web" and "mobile".
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-recommended-shares-5340177 </para>
+            </summary>
+            <param name="type"></param>
+            <param name="area"></param>       
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetShare(System.Int32)">
+            <summary>
+            Returns the shared app from the app market with the given id. It will also return all comments and fivestar ratings of the app.
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-share-22505 </para>
+            </summary>
+            <param name="shareId"></param>          
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetShareByReference(System.String,System.Int32)">
+            <summary>
+            Returns the shares of the given object. The active users shares will be first followed by other users shares. Besides that the shares will be sorted descending by when they were shared.
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-share-by-reference-45002 </para>
+            </summary>
+            <param name="refType"></param>   
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetSharesByAuthor(System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Returns all the apps in the app market created by the given user in the given language.
+            </summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-shares-by-author-22497 </para>
+            <param name="type"></param>
+            <param name="userId"></param>
+            <param name="limit">The maximum number of results to return Default value: 6</param>
+            <param name="offset">The offset into the returned results Default value :0</param>
+            <param name="sort">The sorting of the shares, either "install", "rating", "popularity", "recommended", "shared_on", or "name".Default value: install</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetSharesByCategory(System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Returns the apps in the app market in the given category and language.
+            </summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-shares-by-category-22498 </para>
+            <param name="type"></param>
+            <param name="categoryId"></param>
+            <param name="limit">The maximum number of results to return Default value: 6</param>
+            <param name="offset">The offset into the returned results Default value :0</param>
+            <param name="sort">The sorting of the shares, either "install", "rating", "popularity", "recommended", "shared_on", or "name".Default value: install</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.GetTopShares(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns the top apps in the app market in the given language.
+            </summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/get-top-shares-22496 </para>
+            <param name="type"></param>
+            <param name="limit">The maximum number of results to return Default value: 6</param>
+            <param name="offset">The offset into the returned results Default value :0</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.InstallShare(System.Int32,System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Installs the share with the given id on the space.
+            </summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/install-share-22499 </para>
+            <param name="shareId"></param>
+            <param name="spaceId">The id of the space the shared app should be installed to</param>
+            <param name="dependentShareIds">The list of ids of the dependent shares that should also be installed. If not specified, all dependencies will be installed</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.ShareApp(System.String,System.Int32,System.String,System.String,System.String,System.String,System.Int32[],System.Int32[],System.Int32,System.Collections.Generic.List{System.String},System.Int32,System.String)">
+            <summary>
+            Shares the app or pack in the app market.
+            </summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/share-app-22504 </para>       
+            <param name="refType">The type of object to share, either "app" or "space"</param>
+            <param name="refId">The id of the object to be shared</param>
+            <param name="name">The name of the share (only valid for sharing of space)</param>
+            <param name="abstracts">The abstract of the app</param>
+            <param name="description">The description of the app</param>
+            <param name="language">The language the app is written in</param>
+            <param name="categoryId">The ids of the categories the app should be placed in</param>
+            <param name="fileId">The file ids to use as screenshots for the app</param>
+            <param name="videoId">The youtube id of a introduction video, if any</param>
+            <param name="features">The list of features to enable</param>
+            <param name="childrenId">The ids of the child shares that this share should include</param>
+            <param name="scope">The scope the app should be shared with, either "public" or "private", defaults to "public"</param>
+            <returns>The id of the newly created share</returns>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.UnshareApp(System.Int32)">
+            <summary>
+            Unshares the given app from the app market
+            </summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/unshare-app-37917  </para>
+            <param name="shareId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.AppMarketService.UpdateShare(System.Int32,System.String,System.String,System.String,System.String,System.Int32[],System.Int32[],System.Nullable{System.Int32})">
+            <summary>
+            Updates the share with changes to abstract, description, etc.
+            </summary>
+            <para>Podio API Reference: https://developers.podio.com/doc/app-market/update-share-38639 </para>
+            <param name="shareId"></param>
+            <param name="name">The name of the share, only valid if the share is a space</param>
+            <param name="abstracts">The abstract of the share</param>
+            <param name="description">The description of the share</param>
+            <param name="language">The language the share is written in</param>
+            <param name="categoryId">The ids of the categories the share should be placed in</param>
+            <param name="fileId">The file ids to use as screenshots for the share</param>
+            <param name="videoId">The youtube id of a introduction video, if any</param>
+        </member>
+        <member name="M:PodioAPI.Services.BatchService.GetBatch(System.Int32)">
+            <summary>
+            Returns the batch with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/batch/get-batch-6144225 </para>
+            </summary>
+            <param name="batchId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.BatchService.GetBatches">
+            <summary>
+            Returns the batches created by the user. The batches are sorted descending by date of creation.
+            <para>Podio API Reference: https://developers.podio.com/doc/batch/get-batches-6078877 </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.BatchService.GetRunningBatches(System.String,System.Int32,System.String)">
+            <summary>
+            Returns the currently running batches on the given reference.
+            <para>Podio API Reference: https://developers.podio.com/doc/batch/get-running-batches-15856178 </para>
+            </summary>
+            <param name="refType"> The reference can either be a space or an app.</param>
+            <param name="refId"></param>
+            <param name="plugin">The plugin can either be "app_import", "app_export", "space_contact_import" or "app_content".</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetAppCalendar(System.Int32,System.DateTime,System.DateTime,System.Nullable{System.Int32})">
+            <summary>
+            Returns the items and tasks that are related to the given app.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-app-calendar-22460 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="dateFrom">The date to return events from</param>
+            <param name="dateTo">The date to search to</param>
+            <param name="priority">The minimum priority for the events to return Default value: 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetGlobalCalendar(System.DateTime,System.DateTime,System.Nullable{System.Int32})">
+            <summary>
+            Returns all items that the user have access to and all tasks that are assigned to the user. 
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-global-calendar-22458 </para>
+            </summary>
+            <param name="dateFrom">The date to return events from</param>
+            <param name="dateTo">The date to search to</param>
+            <param name="priority">The minimum priority for the events to return Default value: 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetAppCalendarAsiCal(System.Int32,System.Int32,System.String)">
+            <summary>
+            Returns the app calendar in the iCal format 90 days into the future. The CalendarCode / Token can retrieved by getting the user status.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-app-calendar-as-ical-22515 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="userId"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetGlobalCalendarAsiCal(System.Int32,System.String)">
+            <summary>
+            Returns the users global calendar in the iCal format 90 days into the future. The CalendarCode / Token can retrieved by getting the user status.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-global-calendar-as-ical-22513 </para>
+            </summary>
+            <param name="userId"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetSpaceCalendar(System.Int32,System.DateTime,System.DateTime,System.Nullable{System.Int32})">
+            <summary>
+            Returns all items and tasks that the user have access to in the given space. Tasks with reference to other spaces are not returned or tasks with no reference.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-space-calendar-22459 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="dateFrom">The date to return events from</param>
+            <param name="dateTo">The date to search to</param>
+            <param name="priority">The minimum priority for the events to return Default value: 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetSpaceCalendarAsiCal(System.Int32,System.Int32,System.String)">
+            <summary>
+            Returns the space calendar in the iCal format 90 days into the future. The CalendarCode / Token can retrieved by getting the user status.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-space-calendar-as-ical-22514 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="userId"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetTaskCalendarAsiCal(System.Int32)">
+            <summary>
+            Returns the calendar for the given task in the iCal format.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-task-calendar-as-ical-10195650 </para>
+            </summary>
+            <param name="taskId"></param>
+            <param name="userId"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetCalendarSummary(System.Int32,System.Int32)">
+            <summary>
+            Returns the calendar summary for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-calendar-summary-1609256 </para>
+            </summary>
+            <param name="limit">The maximum number of events to return in each group Default value: 5</param>
+            <param name="priority">The minimum priority for the events to return Default value: 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetCalendarSummaryForPersonal(System.Int32,System.Int32)">
+            <summary>
+            Returns the calendar summary for personal tasks and personal spaces and sub-orgs.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-calendar-summary-for-personal-1657903 </para>
+            </summary>
+            <param name="limit">The maximum number of events to return in each group Default value: 5</param>
+            <param name="priority">The minimum priority for the events to return Default value: 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.CalendarService.GetCalendarSummaryForSpace(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns the calendar summary for the given space for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/calendar/get-calendar-summary-for-space-1609328 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="limit">The maximum number of events to return in each group Default value: 5</param>
+            <param name="priority">The minimum priority for the events to return Default value: 1</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:PodioAPI.Services.CalendarService.UpdateCalendarEvent(System.Int32,System.DateTime,System.DateTime)" -->
         <member name="M:PodioAPI.Services.CommentService.DeleteComment(System.Int32)">
             <summary>
             Deletes a comment made by a user. This can be used to retract a comment that was made and which the user regrets.
@@ -1049,6 +1583,159 @@
             <param name="key"></param>
             <param name="value">The new value for the profile field.</param>
         </member>
+        <member name="M:PodioAPI.Services.ConversationService.AddParticipants(System.Int32,System.Collections.Generic.List{PodioAPI.Models.Ref})">
+            <summary>
+            The list of people to grant access to. This is a list of contact identifiers.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/add-participants-v2-37282400 </para>
+            </summary>
+            <param name="conversationId"></param>
+            <param name="participants">The list of people to grant access to. This is a list of contact identifiers</param>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.CreateConversation(PodioAPI.Models.Request.ConversationCreateRequest)">
+            <summary>
+            Creates a new conversation with a list of users. Once a conversation is started, the participants cannot (yet) be changed.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/create-conversation-v2-37301474 </para>
+            </summary>
+            <param name="conversationCreateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.CreateConversationOnObject(System.String,System.Int32,PodioAPI.Models.Request.ConversationCreateRequest)">
+            <summary>
+            Creates a new conversation on the given object. Works similarly to the create notification method in other regards.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/create-conversation-on-object-22442 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="conversationCreateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetConversation(System.Int32)">
+            <summary>
+            Gets the conversation including participants and messages with the the given id. Only participants in the conversation is allowed to view the conversation.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/get-conversation-22369 </para>
+            </summary>
+            <param name="conversationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetConversationEvent(System.Int32)">
+            <summary>
+            Returns data about the given event.
+            <para>Podio API Reference:  https://developers.podio.com/doc/conversations/get-conversations-34822801 </para>
+            </summary>
+            <param name="eventId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetConversationEvents(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns the events on the conversation.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/get-conversation-events-35440697 </para>
+            </summary>
+            <param name="conversationId"></param>
+            <param name="limit">The maximum number of conversations/events to return. Default value: 10</param>
+            <param name="offset">The offset into the list of conversations/events to return. Default value: 0</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetConversations(System.Int32,System.Int32)">
+            <summary>
+            Returns all the users conversations ordered by time of the last event.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/get-conversations-34822801 </para>
+            </summary>
+            <param name="limit">The maximum number of conversations/events to return. Default value: 10</param>
+            <param name="offset">The offset into the list of conversations/events to return. Default value: 0</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetConversationsOnObject(System.String,System.Int32)">
+            <summary>
+            Returns a list of all the conversations on the object that the active user is part of.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/get-conversations-on-object-22443 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetExistingDirectConversation(System.Int32)">
+            <summary>
+            Returns the existing direct conversation with the user. If none exists a 404 will be returned.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/get-existing-direct-conversation-44969910 </para>
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetFlaggedConversationCounts(System.String)">
+            <summary>
+            Returns the number of conversations with the given flag. The flag can be one of:unread or starred.
+            <para>Podio API Reference:  https://developers.podio.com/doc/conversations/get-flagged-conversation-counts-35467925 </para>
+            </summary>
+            <param name="flag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.GetFlaggedConversations(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns the conversations with the given flag. The flag can be one of:unread or starred
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/get-flagged-conversations-35466860 </para>
+            </summary>
+            <param name="flag"></param>
+            <param name="limit"></param>
+            <param name="offset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.LeaveConversation(System.Int32)">
+            <summary>
+            Leave the given conversation.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/leave-conversation-35483748 </para>
+            </summary>
+            <param name="converstionId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.MarkAllConversationsAsRead">
+            <summary>
+            Marks all the users conversations as read.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/mark-conversation-as-read-35441525 </para>
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.MarkConversationAsUnread(System.Int32)">
+            <summary>
+            Mark the conversation as unread.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/mark-conversation-as-unread-35441542 </para>
+            </summary>
+            <param name="converstionId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.ReplyToConversation(System.Int32,System.String,System.Collections.Generic.List{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Creates a reply to the conversation. Returns the conversation event this generates.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/reply-to-conversation-v2-37260916 </para>
+            </summary>
+            <param name="converstionId"></param>
+            <param name="text">The text of the reply.</param>
+            <param name="fileIds">The list of file ids to be attached to the message.</param>
+            <param name="embedId">[OPTIONAL] The id of an embedded link that has been created with the Add an mebed operation in the Embed area</param>
+            <param name="embedUrl">The url to be attached</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.StarConversation(System.Int32)">
+            <summary>
+            Star the given conversation. If the conversation is already starred, nothing will happen.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/star-conversation-35106944 </para>
+            </summary>
+            <param name="converstionId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.UnstarConversation(System.Int32)">
+            <summary>
+            Removes the star from the conversation.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/unstar-conversation-35106990 </para>
+            </summary>
+            <param name="converstionId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ConversationService.SearchConversations(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Returns the users conversations that match the given text ordered by time of the last event.
+            <para>Podio API Reference: https://developers.podio.com/doc/conversations/search-conversations-36885550 </para>
+            </summary>
+            <param name="text"></param>
+            <param name="limit">The maximum number of conversations/events to return. Default value: 10</param>
+            <param name="offset">The offset into the list of conversations/events to return. Default value: 0</param>
+            <param name="participants">If true it searches through the conversation participants names/emails. If false it searches through the conversation subject and messages. Default value: false</param>
+            <returns></returns>
+        </member>
         <member name="M:PodioAPI.Services.EmbedService.AddAnEmbed(System.String,System.String)">
             <summary>
             Grabs metadata and returns metadata for the given url such as title, description and thumbnails. 
@@ -1176,6 +1863,66 @@
             <param name="fileAttachment"></param>
             <returns></returns>
         </member>
+        <member name="M:PodioAPI.Services.FormService.ActivateForm(System.Int32)">
+            <summary>
+            Enables the form with the given id. Only disabled forms can be enabled, which makes it once again possible to create items in the app using the form.
+            <para>Podio API Reference: https://developers.podio.com/doc/forms/activate-form-1107439 </para>
+            </summary>
+            <param name="formId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.FormService.DeactivateForm(System.Int32)">
+            <summary>
+            Disables the form with given id. This makes it impossible to create new items using the form. Instead, a message about the form being disabled is shown.
+            <para>Podio API Reference: https://developers.podio.com/doc/forms/deactivate-form-1107378 </para>
+            </summary>
+            <param name="formId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.FormService.GetForm(System.Int32)">
+            <summary>
+            Returns the form with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/forms/get-form-53754 </para>
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FormService.GetForms(System.Int32)">
+            <summary>
+            Returns all the active forms on the given app.
+            <para>Podio API Reference: https://developers.podio.com/doc/forms/get-forms-53771 </para>
+            </summary>
+            <param name="appId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FormService.DeleteFrom(System.Int32)">
+            <summary>
+            Deletes the form with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/forms/delete-from-53810 </para>
+            </summary>
+            <param name="formId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.FormService.CreateForm(System.Int32,PodioAPI.Models.FormSettings,System.String[],System.Collections.Generic.List{PodioAPI.Models.FormField},System.Boolean)">
+            <summary>
+            Creates a new form on the app.
+            <para>Podio API Reference: https://developers.podio.com/doc/forms/create-form-53803 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="fromSettings">The settings of the form.</param>
+            <param name="domains">The list of domains where the form can be used.</param>
+            <param name="fields">The id and settings for each field.</param>
+            <param name="attachments">True if attachments are allowed, false otherwise.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FormService.UpdateForm(System.Int32,PodioAPI.Models.FormSettings,System.String[],System.Collections.Generic.List{PodioAPI.Models.FormField},System.Boolean)">
+            <summary>
+            Updates the form with new settings, domains, fields, etc.
+            <para>Podio API Reference: https://developers.podio.com/doc/forms/update-form-53808 </para>
+            </summary>
+            <param name="formId"></param>
+            <param name="fromSettings">The settings of the form.</param>
+            <param name="domains">The list of domains where the form can be used.</param>
+            <param name="fields">The id and settings for each field.</param>
+            <param name="attachments">True if attachments are allowed, false otherwise.</param>
+        </member>
         <member name="M:PodioAPI.Services.GrantService.CountGrantsOnObject(System.String,System.Int32)">
             <summary>
             Returns the count of grants on the given object.
@@ -1281,6 +2028,104 @@
             <para>Podio API Reference: https://developers.podio.com/doc/hooks/validate-hook-verification-215241 </para>
             </summary>
             <param name="hookId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ImporterService.GetInfo(System.Int32)">
+            <summary>
+            Returns the import information about the given file.
+            <para>Podio API Reference: https://developers.podio.com/doc/importer/get-info-5929504 </para>
+            </summary>
+            <param name="fileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ImporterService.ImportAppItems(System.Int32,System.Int32,System.Collections.Generic.List{PodioAPI.Models.Request.ImportMappingField},System.String,System.String)">
+            <summary>
+            Imports the file into the given app. The mapping value for a field depends on the type of field. See the area for datails.
+            <para>Podio API Reference: https://developers.podio.com/doc/importer/import-app-items-212899 </para>
+            </summary>
+            <param name="fileId"></param>
+            <param name="appId">The id of the app the values should be imported into</param>
+            <param name="mappings">The mappings between fields and columns</param>
+            <param name="tagsColumnId">The id of the column to read tags from, if any</param>
+            <param name="appItemIdColumnId">The id of the column to read the app item id from, if any</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ImporterService.ImportSpaceContacts(System.Int32,System.Int32,System.Collections.Generic.List{PodioAPI.Models.Request.ImportMappingContactField})">
+            <summary>
+            Imports the given file into the space contacts on the given space.
+            <para>Podio API Reference: https://developers.podio.com/doc/importer/import-space-contacts-4261072 </para>
+            </summary>
+            <param name="fileId"></param>
+            <param name="spaceId"></param>
+            <param name="mappings">The mappings of the fields on the contact</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ImporterService.GetPreview(System.Int32,System.String,System.Collections.Generic.List{PodioAPI.Models.Request.ImportMappingField})">
+            <summary>
+            Imports the file into the given app. The mapping value for a field depends on the type of field
+            <para>Podio API Reference: https://developers.podio.com/doc/importer/import-app-items-212899 </para>
+            </summary>
+            <param name="fileId"></param>
+            <param name="row"></param>
+            <param name="mappings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.IntegrationService.CreateIntegration(System.Int32,System.String,System.Boolean,System.Object)">
+            <summary>
+            Creates a new integration on the app.
+            <para>Podio API Reference: https://developers.podio.com/doc/integrations/create-integration-86839 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="type">The type of integration, see the area for available types</param>
+            <param name="silent">True if updates should be silent, false otherwise</param>
+            <param name="config">The configuration of the integration, which depends on the above type,</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.IntegrationService.DeleteIntegration(System.Int32)">
+            <summary>
+            Deletes the integration from the given app.
+            <para>Podio API Reference: https://developers.podio.com/doc/integrations/delete-integration-86876 </para>
+            </summary>
+            <param name="appId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.IntegrationService.GetAvailableFields(System.Int32)">
+            <summary>
+            Returns the fields available from the configuration.
+            <para>Podio API Reference: https://developers.podio.com/doc/integrations/get-available-fields-86890 </para>
+            </summary>
+            <param name="appId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.IntegrationService.GetIntegration(System.Int32)">
+            <summary>
+            Returns the integration with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/integrations/get-integration-86821 </para>
+            </summary>
+            <param name="appId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.IntegrationService.RefreshIntegration(System.Int32)">
+            <summary>
+            Refreshes the integration. This will update all items in the background.
+            <para>Podio API Reference: https://developers.podio.com/doc/integrations/refresh-integration-86987 </para>
+            </summary>
+            <param name="appId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.IntegrationService.UpdateIntegration(System.Int32,System.Nullable{System.Boolean},System.Object)">
+            <summary>
+            Updates the configuration of the integration. The configuration depends on the type of integration.
+            <para>Podio API Reference: https://developers.podio.com/doc/integrations/update-integration-86843 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="silent"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:PodioAPI.Services.IntegrationService.UpdateIntegrationMapping(System.Int32,System.Collections.Generic.Dictionary{System.Int32,System.String})">
+            <summary>
+            Updates the mapping between the fields of the app and the fields available from the integration.
+            <para>Podio API Reference: https://developers.podio.com/doc/integrations/update-integration-mapping-86865 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="fields"> Field id and the external id for the given field id</param>
         </member>
         <member name="M:PodioAPI.Services.ItemService.AddNewItem(System.Int32,PodioAPI.Models.Item,System.Boolean,System.Boolean)">
             <summary>
@@ -1624,6 +2469,74 @@
             <param name="revisionTo"></param>
             <returns></returns>
         </member>
+        <member name="M:PodioAPI.Services.NotificationService.GetInboxNewCount">
+            <summary>
+            Returns the number of unread notifications for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/get-inbox-new-count-84610 </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.NotificationService.StarNotification(System.Int32)">
+            <summary>
+            Star the given notification to move it to the star list.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/star-notification-295910 </para>
+            </summary>
+            <param name="notificationId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.NotificationService.UnStarNotification(System.Int32)">
+            <summary>
+            Removes the star on the notification.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/un-star-notification-295911 </para>
+            </summary>
+            <param name="notificationId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.NotificationService.MarkNotificationsAsViewedByRef(System.String,System.Int32)">
+            <summary>
+            Marks all notifications on the given object as viewed.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/mark-notifications-as-viewed-by-ref-553653 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.NotificationService.MarkNotificationAsViewed(System.Int32)">
+            <summary>
+            Mark the notification as viewed. This will move the notification from the inbox to the viewed archive.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/mark-notification-as-viewed-22436 </para>
+            </summary>
+            <param name="notificationId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.NotificationService.MarkAllNotificationsAsViewed">
+            <summary>
+            Marks all the users notifications as viewed.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/mark-all-notifications-as-viewed-58099 </para>
+            </summary>
+        </member>
+        <member name="M:PodioAPI.Services.NotificationService.GetNotification(System.Int32)">
+            <summary>
+            Retrieves a single notification grouped similarly to the get notifications operation.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/get-notification-2973737 </para>
+            </summary>
+            <param name="notificationId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.NotificationService.GetNotifications(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Int32,System.Int32,System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.DateTime})">
+            <summary>
+            Returns a list of notifications based on the query parameters. The notifications will be grouped based on their context.
+            <para>Podio API Reference: https://developers.podio.com/doc/notifications/get-notifications-290777 </para>
+            </summary>
+            <param name="contextType">The type of the context to get notifications for, f.ex. "conversation", "item" or "task"</param>
+            <param name="createdFrom">The earliest date and time to return notifications from</param>
+            <param name="createdTo">The latest date and time to return notifications from</param>
+            <param name="direction">"incoming" to get incoming notifications, "outgoing" to get outgoing notifications. Default value: incoming</param>
+            <param name="limit">The maximum number of notifications to return, maxium is "100". Default value: 20</param>
+            <param name="offSet">The offet into the returned notifications. Default value: 0</param>
+            <param name="starred">False to get only unstarred notifications, true to get only starred notifications, leave blank for both</param>
+            <param name="type">A type of notification, see the area for possible types</param>
+            <param name="userId">The user id of the other part of the notification</param>
+            <param name="viewed">False to get all unviewed notifications, true to get all viewed notifications, leave blank for both</param>
+            <param name="viewedFrom">When returning only unviewed notifications (above), notifications viewed after the given date and time will also be returned. Use this to keep pagination even when some notifications has been viewed after initial page load.</param>
+            <returns></returns>
+        </member>
         <member name="M:PodioAPI.Services.OrganizationService.AddNewOrganization(System.String,System.Int32)">
             <summary>
             Creates a new organization.
@@ -1793,6 +2706,138 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:PodioAPI.Services.OrganizationService.GetSharedOrganizations(System.Int32)" -->
+        <member name="M:PodioAPI.Services.QuestionService.AnswerQuestion(System.Int32,System.Int32)">
+            <summary>
+            Answers the question for the given object. The object type can be either "status" or "comment".
+            <para>Podio API Reference: https://developers.podio.com/doc/questions/answer-question-887232 </para>
+            </summary>
+            <param name="questionId"></param>
+            <param name="questionOptionId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.QuestionService.GetAnswers(System.Int32)">
+            <summary>
+            Returns all the answers for the given question on the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/questions/get-answers-945753  </para>
+            </summary>
+            <param name="questionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.QuestionService.CreateQuestion(System.String,System.Int32,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a new question on the given object. Supported object types are "status" and "comment".
+            <para>Podio API Reference: https://developers.podio.com/doc/questions/create-question-887166 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="questionText">The text of the question.</param>
+            <param name="options">The list of text for the option</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.AddRating(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Add a new rating of the user to the object. The rating can be one of many different types. For more details see the area.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/add-rating-22377 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="ratingType"></param>
+            <param name="value">The value of the rating, see the area for information on the value to use.</param>
+            <returns>The id of the rating created.</returns>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.GetLikeCount(System.String,System.Int32)">
+            <summary>
+            Get the number of users who liked the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/get-like-count-32161225 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.GetRating(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Returns the rating value for the given rating type, object and user.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/get-rating-22407 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="ratingType"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.GetRatingOwn(System.String,System.Int32,System.String)">
+            <summary>
+            Returns the active users rating value for the given rating type and object.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/get-rating-own-84128 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="ratingType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.GetWhoLikedAnObject(System.String,System.Int32,System.Int32)">
+            <summary>
+            Get a list of profiles of everyone that liked the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/get-who-liked-an-object-29007011 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="limit">How many profiles that liked something to return. Default value: 10</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.RemoveRating(System.String,System.Int32,System.String)">
+            <summary>
+            Removes a previous rating of the given type by the user of the specified object.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/remove-rating-22342 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="ratingType"></param>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.GetAllRatings(System.String,System.Int32)">
+            <summary>
+            Returns all the ratings for the given object. It will only return the ratings that are enabled for the object.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/get-all-ratings-22376 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RatingService.GetRatings(System.String,System.Int32,System.String)">
+            <summary>
+            Get the rating average (for fivestar) and totals for the given rating type on the specified object.
+            <para>Podio API Reference: https://developers.podio.com/doc/ratings/get-ratings-22375 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="ratingType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RecurrenceService.GetRecurrence(System.String,System.Int32)">
+            <summary>
+            Returns the recurrence for the given object
+            <para>Podio API Reference: https://developers.podio.com/doc/recurrence/get-recurrence-3415545 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.RecurrenceService.DeleteRecurrence(System.String,System.Int32)">
+            <summary>
+            Deletes the recurrence.
+            <para>Podio API Reference: https://developers.podio.com/doc/recurrence/delete-recurrence-3349970 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.RecurrenceService.UpdateRecurrence(System.String,System.Int32,PodioAPI.Models.Recurrence)">
+            <summary>
+            Creates or updates recurrence on the object.
+            <para>Podio API Reference: https://developers.podio.com/doc/recurrence/create-or-update-recurrence-3349957 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="recurrence"></param>
+        </member>
         <member name="M:PodioAPI.Services.ReferenceService.CountUserWithAccess(System.String,System.Int32)">
             <summary>
             Returns the number of other users with access to the given object.
@@ -1840,6 +2885,42 @@
             </summary>
             <param name="searchReferenceRequest"></param>
             <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ReminderService.GetReminder(System.String,System.Int32)">
+            <summary>
+            Returns the reminder for the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/reminders/get-reminder-3415569 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ReminderService.DeleteReminder(System.String,System.Int32,System.Int32)">
+            <summary>
+            Deletes the reminder, if any, on the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/reminders/delete-reminder-3315117 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="reminderId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ReminderService.SnoozeReminder(System.String,System.Int32,System.Int32)">
+            <summary>
+            Snoozes the reminder for 10 minutes.
+            <para>Podio API Reference: https://developers.podio.com/doc/reminders/snooze-reminder-3321049 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="reminderId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ReminderService.Update(System.String,System.Int32,System.Int32)">
+            <summary>
+            Creates or updates the reminder on a object. Possible ref_types are: task.
+            <para>Podio API Reference: https://developers.podio.com/doc/reminders/create-or-update-reminder-3315055 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="remindDelta">minutes to remind before the due date of the object</param>
         </member>
         <member name="M:PodioAPI.Services.SearchService.SearchGlobally(System.String,System.Nullable{System.Int32},System.Int32)">
             <summary>
@@ -2228,6 +3309,141 @@
             <param name="groupsLimit">Default value: 2</param>
             <returns></returns>
         </member>
+        <member name="M:PodioAPI.Services.SubscriptionService.GetSubscriptionById(System.Int32)">
+            <summary>
+            Returns the subscription with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/subscriptions/get-subscription-by-id-22446 </para>
+            </summary>
+            <param name="subscriptionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.SubscriptionService.Subscribe(System.String,System.Int32)">
+            <summary>
+            Subscribes the user to the given object. Based on the object type, the user will receive notifications when actions are performed on the object. See the area for more details.
+            <para>Podio API Reference: https://developers.podio.com/doc/subscriptions/subscribe-22409 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.SubscriptionService.UnsubscribeByReference(System.String,System.Int32)">
+            <summary>
+            Unsubscribe from getting notifications on actions on the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/subscriptions/unsubscribe-by-reference-22410 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.SubscriptionService.GetSubscriptionByReference(System.String,System.Int32)">
+            <summary>
+            Get the subscription for the given object.
+            <para>Podio API Reference: https://developers.podio.com/doc/subscriptions/get-subscription-by-reference-22408 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.SubscriptionService.UnsubscribeById(System.Int32)">
+            <summary>
+            Stops the subscription with the given id
+            <para>Podio API Reference: https://developers.podio.com/doc/subscriptions/unsubscribe-by-id-22445 </para>
+            </summary>
+            <param name="subscriptionId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.CreateTags(System.String,System.Int32,System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds additional tags to the object. If a tag with the same text is already present, the tag will be ignored. Existing tags on the object are preserved.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/create-tags-22464 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="tags"></param>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.GetObjectsOnAppWithTag(System.Int32,System.String)">
+            <summary>
+            Returns the objects that are tagged with the given text on the app. The objects are returned sorted descending by the time the tag was added.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/get-objects-on-app-with-tag-22469 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="text">The tag to search for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.GetObjectsOnOrganizationWithTag(System.Int32,System.String)">
+            <summary>
+            Returns the objects that are tagged with the given text on the organization. The objects are returned sorted descending by the time the tag was added.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/get-objects-on-organization-with-tag-48478 </para>
+            </summary>
+            <param name="orgId"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.GetObjectsOnSpaceWithTag(System.Int32,System.String)">
+            <summary>
+            Returns the objects that are tagged with the given text on the space. The objects are returned sorted descending by the time the tag was added.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/get-objects-on-space-with-tag-22468 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.GetTagsOnApp(System.Int32,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Returns the tags on the given app. This includes only items. The tags are first limited ordered by their frequency of use, and then returned sorted alphabetically.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/get-tags-on-app-22467 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="limit">The maximum number of tags to return.</param>
+            <param name="text">The tag to search for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.GetTagsOnAppTop(System.Int32,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Returns the top tags on the app.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/get-tags-on-app-top-68485 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="limit">The maximum number of tags to return</param>
+            <param name="text">The tag to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.GetTagsOnOrganization(System.Int32,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Returns the tags on the given org. This includes both items and statuses on all spaces in the organization that the user is part of. The tags are first limited ordered by their frequency of use, and then returned sorted alphabetically.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/get-tags-on-organization-48473 </para>
+            </summary>
+            <param name="orgId"></param>
+            <param name="limit">The maximum number of tags to return</param>
+            <param name="text">The tag to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.GetTagsOnSpace(System.Int32,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Returns the tags on the given space. This includes both items and statuses. The tags are first limited ordered by their frequency of use, and then returned sorted alphabetically.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/get-tags-on-space-22466 </para>
+            </summary>
+            <param name="spaceId"></param>
+            <param name="limit">The maximum number of tags to return</param>
+            <param name="text">The tag to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.RemoveTag(System.String,System.Int32,System.String)">
+            <summary>
+            Removes a single tag from an object.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/remove-tag-22465 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="text">The tag to search for</param>
+        </member>
+        <member name="M:PodioAPI.Services.TagService.UpdateTags(System.String,System.Int32,System.Collections.Generic.List{System.String})">
+            <summary>
+            Updates the tags on the given object. Existing tags on the object will be overwritten. Use Create Tags operation to preserve existing tags.
+            <para>Podio API Reference: https://developers.podio.com/doc/tags/update-tags-39859 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="tags"></param>
+        </member>
         <member name="M:PodioAPI.Services.TaskService.GetTaskSummary(System.Int32)">
             <summary>
             Returns the task summary for the active user.
@@ -2519,6 +3735,134 @@
             <param name="silent">If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false.</param>
             <param name="responsible">The contact responsible (user_id), or null if no one should be responsible.</param>
         </member>
+        <member name="M:PodioAPI.Services.UserService.DeleteUserProperty(System.String)">
+            <summary>
+            Deletes the property for the active user with the given name. The property is specific to the auth client used.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/delete-user-property-29800 </para>
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.GetNotificationSetting(System.String,System.String)">
+            <summary>
+            Get's the setting for the given client type and notification type. 
+            <para>Podio API Reference: https://developers.podio.com/doc/users/get-notification-setting-3649859 </para>
+            </summary>
+            <param name="clientType">Client type: "email" and "mobile".</param>
+            <param name="notificationType">Notification type: "digest", "bulletin", "reference", "message", "space", "subscription", "user", "reminder", "push_notification", "push_notification_sound" or "push_notification_browser".</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.GetNotificationSettings(System.String)">
+            <summary>
+            Get's the setting for the given client type and notification type. 
+            <para>Podio API Reference: https://developers.podio.com/doc/users/get-notification-setting-3649859 </para>
+            </summary>
+            <param name="clientType">Client type: "email" and "mobile".</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.GetProfileField(System.String)">
+            <summary>
+            Returns the field of the profile for the given key from the active user. For a list of valid keys and their possible values, see the contact area.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/get-profile-field-22380 </para>
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.GetUser">
+            <summary>
+            Gets the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/get-user-22378 </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.UpdateNotificationSetting(System.String,System.String,System.Boolean)">
+            <summary>
+            Updates the setting for the given client type and notification type.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/update-notification-setting-3649918 </para>
+            </summary>
+            <param name="clientType">Client type: "email" and "mobile".</param>
+            <param name="notificationType">Notification type: "digest", "bulletin", "reference", "message", "space", "subscription", "user", "reminder", "push_notification", "push_notification_sound" or "push_notification_browser".</param>
+            <param name="value"></param>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.UpdateNotificationSettings(System.String,System.Collections.Generic.Dictionary{System.String,System.Boolean})">
+            <summary>
+            Updates the setting for the given client type 
+            <para>Podio API Reference: https://developers.podio.com/doc/users/update-notification-settings-3649927 </para>
+            </summary>
+            <param name="clientType">Client type: "email" and "mobile".</param>
+            <param name="notificationTypes">Notification type: "digest", "bulletin", "reference", "message", "space", "subscription", "user", "reminder", "push_notification", "push_notification_sound" or "push_notification_browser".</param>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.UpdateProfile(PodioAPI.Models.Contact)">
+            <summary>
+            Updates the fields of an existing profile. Fields not specified will not be updated. To delete a field set the value of the field to null.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/update-profile-22402 </para>
+            </summary>
+            <param name="updatedProfile">The value or list of values for the given field. For a list of fields see the contact area</param>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.UpdateProfileField(System.String,System.String)">
+            <summary>
+            Updates the specific field on the user.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/update-profile-field-22500 </para>
+            </summary>
+            <param name="key"></param>
+            <param name="value">The new value for the profile field.</param>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.GetUserStatus">
+            <summary>
+            Returns the current status for the user. This includes the user data, profile data and notification data.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/get-user-status-22480 </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ViewService.CreateView(System.Int32,PodioAPI.Models.Request.ViewCreateUpdateRequest)">
+            <summary>
+            Creates a new view on the given app.
+            <para>Podio API Reference: https://developers.podio.com/doc/views/create-view-27453 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="viewCreateRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ViewService.GetView(System.Int32,System.String)">
+            <summary>
+            Returns the definition for the given view. The view can be either a view id, a standard view or "last" for the last view used.
+            <para>Podio API Reference: https://developers.podio.com/doc/views/get-view-27450 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="viewIdOrName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ViewService.GetViews(System.Int32,System.Boolean)">
+            <summary>
+            Returns the views on the given app.
+            <para>Podio API Reference: https://developers.podio.com/doc/views/get-views-27460 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="includeStandardViews">True if standard views should be included, false otherwise. Default value: false</param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.ViewService.DeleteView(System.Int32)">
+            <summary>
+            Deletes the given view.
+            <para>Podio API Reference: https://developers.podio.com/doc/views/delete-view-27454 </para>
+            </summary>
+            <param name="viewId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ViewService.UpdateLastView(System.Int32,PodioAPI.Models.Request.ViewCreateUpdateRequest)">
+            <summary>
+            Updates the last view for the active user.
+            <para>Podio API Reference: https://developers.podio.com/doc/views/update-last-view-5988251 </para>
+            </summary>
+            <param name="appId"></param>
+            <param name="request"></param>
+        </member>
+        <member name="M:PodioAPI.Services.ViewService.UpdateView(System.Int32,PodioAPI.Models.Request.ViewCreateUpdateRequest)">
+            <summary>
+            Updates the given view.
+            <para>Podio API Reference: https://developers.podio.com/doc/views/update-view-20069949 </para>
+            </summary>
+            <param name="viewId"></param>
+            <param name="request"></param>
+        </member>
         <member name="M:PodioAPI.Services.WidgetService.CreateWidget(System.String,System.Int32,System.String,System.String,System.Object)">
             <summary>
             Create a new widget on the given reference.
@@ -2705,24 +4049,24 @@
             Size of the input field, either "small" or "large"
             </summary>
         </member>
-        <member name="M:PodioAPI.Utils.IAuthStore.Get">
+        <member name="M:PodioAPI.Utils.Authentication.IAuthStore.Get">
             <summary>
             Get PodioOAuth object from store
             </summary>
             <returns></returns>
         </member>
-        <member name="M:PodioAPI.Utils.IAuthStore.Set(PodioAPI.Utils.PodioOAuth)">
+        <member name="M:PodioAPI.Utils.Authentication.IAuthStore.Set(PodioAPI.Utils.Authentication.PodioOAuth)">
             <summary>
-            Store PodioOAuth object from store
+            Store PodioOAuth object to store
             </summary>
             <param name="podioOAuth"></param>
         </member>
-        <member name="M:PodioAPI.Utils.IAuthStore.Clear">
+        <member name="M:PodioAPI.Utils.Authentication.IAuthStore.Clear">
             <summary>
             Remove PodioOAuth from store
             </summary>
         </member>
-        <member name="T:PodioAPI.Utils.PodioOAuth">
+        <member name="T:PodioAPI.Utils.Authentication.PodioOAuth">
             <summary>
             Authenication response form API
             </summary>

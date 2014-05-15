@@ -54,7 +54,7 @@
     </Reference>
     <Reference Include="Podio.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Podio.0.7.1\lib\net40\Podio.NET.dll</HintPath>
+      <HintPath>..\packages\Podio.0.9.0\lib\net40\Podio.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -145,6 +145,7 @@
     </Compile>
     <Compile Include="Models\Lead.cs" />
     <Compile Include="Models\PodioConnection.cs" />
+    <Compile Include="Models\SessionAuthStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\UsernamePasswordAuthenticationAuthenticationViewModel.cs" />
     <Compile Include="ViewModels\LeadListingViewModel.cs" />

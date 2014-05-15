@@ -40,7 +40,7 @@ namespace PodioAspNetSample.Controllers
             {
                 try
                 {
-                    PodioClient.AuthenicateWithPassword(model.Username, model.Password);
+                    PodioClient.AuthenticateWithPassword(model.Username, model.Password);
                     return RedirectToAction("Index", "Leads");
                 }
                 catch (PodioException ex)
@@ -60,7 +60,7 @@ namespace PodioAspNetSample.Controllers
             //If error is empty, that means the authrization is succesfull and the authrization code returns
             if (string.IsNullOrEmpty(error) && !string.IsNullOrEmpty(code))
             {
-                PodioClient.AuthenicateWithAuthorizationCode(code, RedirectUrl);
+                PodioClient.AuthenticateWithAuthorizationCode(code, RedirectUrl);
                 return RedirectToAction("Index", "Leads");
             }
             else

@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PodioAPI.Utils.Authentication;
 
 namespace PodioAspNetSample.Models
 {
@@ -44,6 +45,12 @@ namespace PodioAspNetSample.Models
         /// <returns></returns>
         public Podio GetClient()
         {
+           /* SessionAuthStore is an implementation of PodioAPI.Utils.IAuthStore interface (stores OAuth data in Session) which is provided by Podio-dotnet client libray out of box. 
+            You can do your own implementation of IAuthStore interface if you need to store access token in database or whereever,
+            and pass it in when you initialize Podio class
+           */
+            var sessionAuthStore = new SessionAuthStore();
+
             var podio = new Podio(ClientId, ClientSecret);
             return podio;
         }
