@@ -844,7 +844,7 @@
         </member>
         <member name="P:PodioAPI.Podio.UserService">
             <summary>
-            Provies all API methods in User Area
+            Provies API methods in User Area
             <para> https://developers.podio.com/doc/users </para>
             </summary>
         </member>
@@ -863,8 +863,14 @@
         <!-- Badly formed XML comment ignored for member "P:PodioAPI.Podio.ViewService" -->
         <member name="P:PodioAPI.Podio.IntegrationService">
             <summary>
-            Provies all API methods in Integrations area
+            Provies API methods in Integrations area
             <para> https://developers.podio.com/doc/integrations </para>
+            </summary>
+        </member>
+        <member name="P:PodioAPI.Podio.FlowService">
+            <summary>
+            Provies API methods in Flow area
+            <para> https://developers.podio.com/doc/flows </para>
             </summary>
         </member>
         <member name="M:PodioAPI.Services.ActionService.GetAction(System.Int32)">
@@ -1861,6 +1867,38 @@
             <para>For more information see https://developers.podio.com/examples/files </para>
             </summary>
             <param name="fileAttachment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FlowService.GetFlowById(System.Int32)">
+            <summary>
+            Returns the flow with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/flows/get-flow-by-id-26312313 </para>
+            </summary>
+            <param name="flowId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FlowService.GetFlows(System.String,System.Int32)">
+            <summary>
+            Get all the flows on the given ref.
+            <para>Podio API Reference: https://developers.podio.com/doc/flows/get-flows-26312304 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FlowService.DeleteFlow(System.Int32)">
+            <summary>
+            Delete the flow with the given id.
+            <para>Podio API Reference: https://developers.podio.com/doc/flows/delete-flow-32929229 </para>
+            </summary>
+            <param name="flowId"></param>
+        </member>
+        <member name="M:PodioAPI.Services.FlowService.GetFlowContext(System.Int32)">
+            <summary>
+            Returns the possible attributes on the given flow.
+            <para>Podio API Reference: https://developers.podio.com/doc/flows/get-flow-context-26313659 </para>
+            </summary>
+            <param name="flowId"></param>
             <returns></returns>
         </member>
         <member name="M:PodioAPI.Services.FormService.ActivateForm(System.Int32)">
