@@ -54,7 +54,7 @@
     </Reference>
     <Reference Include="Podio.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Podio.0.9.5\lib\net40\Podio.NET.dll</HintPath>
+      <HintPath>..\packages\Podio.0.9.8\lib\net40\Podio.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

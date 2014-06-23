@@ -84,8 +84,8 @@ namespace PodioAspNetSample.Controllers
         {
             ViewBag.hideLogoutButton = true;
 
-            //Clear Auth token from auth store
-            PodioClient.ClearAuth();
+            Session.Clear();
+            Session.Abandon();
 
             return View("Index");
         }

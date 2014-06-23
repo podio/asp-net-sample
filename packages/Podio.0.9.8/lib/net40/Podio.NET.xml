@@ -678,11 +678,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:PodioAPI.Podio.ClearAuth">
-            <summary>
-            Clear access token from AuthStore
-            </summary>
-        </member>
         <member name="P:PodioAPI.Podio.ItemService">
             <summary>
             Provies all API methods in Item Area
@@ -1899,6 +1894,39 @@
             <para>Podio API Reference: https://developers.podio.com/doc/flows/get-flow-context-26313659 </para>
             </summary>
             <param name="flowId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.FlowService.AddNewFlow(System.String,System.Int32,System.String,System.String,System.Collections.Generic.List{PodioAPI.Effect},System.Object)">
+            <summary>
+            Creates a new flow on the given reference. Only valid reference is "app".
+            <para>Podio API Reference: https://developers.podio.com/doc/flows/add-new-flow-26309928 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="name">The name of the flow</param>
+            <param name="type">The type of the flow, currently only supports "item.create" and "item.update"</param>
+            <param name="effects">The list of effects to add</param>
+            <param name="config">The configuration for the cause of the flow</param>
+        </member>
+        <member name="M:PodioAPI.Services.FlowService.UpdateFlow(System.Int32,System.String,System.Collections.Generic.List{PodioAPI.Effect},System.Object)">
+            <summary>
+            Updates the flow. The type cannot be changed.
+            <para>Podio API Reference: https://developers.podio.com/doc/flows/update-flow-26310901 </para>
+            </summary>
+            <param name="flowId"></param>
+            <param name="name"> The new name of the flow</param>
+            <param name="effects">The list of effects to add</param>
+            <param name="config">The configuration for the cause of the flow</param>
+        </member>
+        <member name="M:PodioAPI.Services.FlowService.GetPossibleAttributes(System.String,System.Int32,PodioAPI.Models.Cause,System.Object)">
+            <summary>
+            Get's the possible attributes to use as variables for a given effect attribute.
+            <para>Podio API Reference: https://developers.podio.com/doc/flows/get-possible-attributes-33060379 </para>
+            </summary>
+            <param name="refType"></param>
+            <param name="refId"></param>
+            <param name="cause">Details about the cause</param>
+            <param name="effect">Details about the effect</param>
             <returns></returns>
         </member>
         <member name="M:PodioAPI.Services.FormService.ActivateForm(System.Int32)">
@@ -3851,6 +3879,29 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:PodioAPI.Services.UserService.GetUserProperty(System.String)">
+            <summary>
+            Returns the value of the property for the active user with the given name. The property is specific to the auth client used.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/get-user-property-29798 </para>
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.SetUserProperty(System.String,System.Object)">
+            <summary>
+            Sets the value of the property for the active user with the given name. The property is specific to the auth client used.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/set-user-property-29799 </para>
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:PodioAPI.Services.UserService.SetUserProperties(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Sets the values of one or more properties for the active user. The properties are specific to the auth client used.
+            <para>Podio API Reference: https://developers.podio.com/doc/users/set-user-properties-9052829 </para>
+            </summary>
+            <param name="properties">The JSON object value of the property</param>
+        </member>
         <member name="M:PodioAPI.Services.ViewService.CreateView(System.Int32,PodioAPI.Models.Request.ViewCreateUpdateRequest)">
             <summary>
             Creates a new view on the given app.
@@ -4098,11 +4149,6 @@
             Store PodioOAuth object to store
             </summary>
             <param name="podioOAuth"></param>
-        </member>
-        <member name="M:PodioAPI.Utils.Authentication.IAuthStore.Clear">
-            <summary>
-            Remove PodioOAuth from store
-            </summary>
         </member>
         <member name="T:PodioAPI.Utils.Authentication.PodioOAuth">
             <summary>
