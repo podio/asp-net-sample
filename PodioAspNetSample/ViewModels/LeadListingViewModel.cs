@@ -1,5 +1,4 @@
-﻿using DataAnnotationsExtensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +10,7 @@ namespace PodioAspNetSample.ViewModels
 {
     public class LeadListingViewModel
     {
-       public List<LeadView> Leads { get; set; }
+       public IEnumerable<LeadView> Leads { get; set; }
        public SelectList LeadOwnersOptions { get; set; }
        public SelectList StatusOptions { get; set; }
 
@@ -20,13 +19,12 @@ namespace PodioAspNetSample.ViewModels
        public DateTime? NextFollowUpTo { get; set; }
 
        [DisplayName("Expected total value of lead")]
-       [Integer]
        public decimal? ExpectedValueFrom { get; set; }
-       [Integer]
        public decimal? ExpectedValueTo { get; set; }
        public int? Status { get; set; }
        public int? LeadOwner { get; set; }   
     }
+
     public class LeadView
     {
         public int PodioItemID { get; set; }

@@ -8,15 +8,17 @@ using PodioAspNetSample.ViewModels;
 using PodioAPI.Exceptions;
 using System.Collections.Generic;
 using PodioAPI.Models;
+using System.Threading.Tasks;
+using PodioAspNetSample.Filters;
 
 namespace PodioAspNetSample.Controllers
 {
-    [LoadClient]
+    [PodioAuthenticationFilter]
     public class LeadsController : Controller
     {
         public Podio PodioClient { get; set; }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             ViewBag.message = TempData["message"];
             ViewBag.error = TempData["error"];
@@ -26,9 +28,9 @@ namespace PodioAspNetSample.Controllers
 
             try
             {
-                List<Contact> spaceUsers = lead.GetUsers();
-                Dictionary<int,string> statuses = lead.GetAllStatuses();
-                IEnumerable<Lead> leads = lead.GetAllLeads();
+                List<Contact> spaceUsers = await lead.GetUsers();
+                Dictionary<int,string> statuses = await lead.GetAllStatuses();
+                IEnumerable<Lead> leads = await lead.GetAllLeads();
 
                 model.LeadOwnersOptions = new SelectList(spaceUsers, "ProfileId", "Name");
                 model.StatusOptions = new SelectList(statuses, "Key", "Value");
@@ -57,7 +59,7 @@ namespace PodioAspNetSample.Controllers
         }
 
         [HttpPost]
-        public ActionResult Filter(LeadListingViewModel leadListingModel)
+        public async Task<ActionResult> Filter(LeadListingViewModel leadListingModel)
         {
             var lead = new Lead();
             var model = new LeadListingViewModel();
@@ -71,10 +73,9 @@ namespace PodioAspNetSample.Controllers
                 int? status = leadListingModel.Status;
                 int? leadOwner = leadListingModel.LeadOwner;
 
-
-                List<Contact> spaceUsers = lead.GetUsers();
-                Dictionary<int, string> statuses = lead.GetAllStatuses();
-                IEnumerable<Lead> leads = lead.GetAllLeads(nextFollowUpFromDate, nextFollowUpToDate, expectedValueFrom, expectedValueTo, status, leadOwner);
+                IEnumerable<Contact> spaceUsers = await lead.GetUsers();
+                Dictionary<int, string> statuses = await lead.GetAllStatuses();
+                IEnumerable<Lead> leads = await lead.GetAllLeads(nextFollowUpFromDate, nextFollowUpToDate, expectedValueFrom, expectedValueTo, status, leadOwner);
 
                 model.LeadOwnersOptions = new SelectList(spaceUsers, "ProfileId", "Name", leadOwner);
                 model.StatusOptions = new SelectList(statuses, "Key", "Value", status);
@@ -90,7 +91,7 @@ namespace PodioAspNetSample.Controllers
                                         Status = x.Status,
                                         NextFollowUp = x.NextFollowUp,
                                         PodioItemID = x.PodioItemID
-                                    }).ToList();
+                                    });
                 }
                     
             }
@@ -102,16 +103,21 @@ namespace PodioAspNetSample.Controllers
             return View("Index", model);
         }
 
-        public ActionResult Create()
+        public async Task<ActionResult> Create()
         {
             var lead = new Lead();
             var model = new LeadViewModel();
 
             try
             {
-                List<Contact> spaceContacts = lead.GetSpaceContacts();
-                List<Contact> spaceUsers = lead.GetUsers();
-                Dictionary<int, string> statuses = lead.GetAllStatuses();
+
+                var spaceContactsTask = lead.GetSpaceContacts();
+                var spaceUsersTask = lead.GetUsers();
+                var statusesTask = lead.GetAllStatuses();
+
+                List<Contact> spaceContacts = await spaceContactsTask;
+                List<Contact> spaceUsers = await spaceUsersTask;
+                Dictionary<int, string> statuses = await statusesTask;
 
                 model.LeadContactsOptions = new SelectList(spaceContacts, "ProfileId", "Name");
                 model.LeadOwnersOptions = new SelectList(spaceUsers, "ProfileId", "Name");
@@ -126,13 +132,13 @@ namespace PodioAspNetSample.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(LeadViewModel leadViewModel)
+        public async Task<ActionResult> Create(LeadViewModel leadViewModel)
         {
-            Lead lead = LeadViewModelToLead(leadViewModel);
+            Lead lead = Lead.LeadViewModelToLead(leadViewModel);
 
             try
             {
-                int itemId = lead.CreateLead(lead);
+                int itemId = await lead.CreateLead(lead);
 
                 if(itemId != default(int))
                     TempData["message"] = "New lead added succesfully";
@@ -145,7 +151,7 @@ namespace PodioAspNetSample.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
             ViewBag.message = TempData["message"];
             ViewBag.error = TempData["error"];
@@ -155,11 +161,16 @@ namespace PodioAspNetSample.Controllers
 
             try
             {
-                Lead leadToEdit = lead.GetLead(id);
+                var leadToEditTask = lead.GetLead(id);
 
-                List<Contact> spaceContacts = lead.GetSpaceContacts();
-                List<Contact> spaceUsers = lead.GetUsers();
-                Dictionary<int,string> statuses = lead.GetAllStatuses();
+                var spaceContactsTask = lead.GetSpaceContacts();
+                var spaceUsersTask = lead.GetUsers();
+                var statusesTask = lead.GetAllStatuses();
+
+                List<Contact> spaceContacts = await spaceContactsTask;
+                List<Contact> spaceUsers = await spaceUsersTask;
+                Dictionary<int, string> statuses = await statusesTask;
+                var leadToEdit = await leadToEditTask;
 
                 IEnumerable<int> selectedLeadContacts = leadToEdit.Contacts != null ? leadToEdit.Contacts.Select(x => x.Key) : null;
                 IEnumerable<int> selectedLeadOwners = leadToEdit.LeadOwners != null ? leadToEdit.LeadOwners.Select(x => x.Key) : null;
@@ -190,14 +201,14 @@ namespace PodioAspNetSample.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(LeadViewModel leadViewModel, string Command)
+        public async Task<ActionResult> Edit(LeadViewModel leadViewModel, string command)
         {
-            if(Command == "Update")
+            if(command == "Update")
             {
-                Lead lead = LeadViewModelToLead(leadViewModel);
+                Lead lead = Lead.LeadViewModelToLead(leadViewModel);
                 try
                 {
-                    lead.UpdateLead(lead);
+                    await lead.UpdateLead(lead);
                     TempData["message"] = "Lead updated successfully";
                 }
                 catch (PodioException ex)
@@ -213,12 +224,12 @@ namespace PodioAspNetSample.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
             var lead = new Lead();
             try
             {
-                lead.DeleteLead(id);
+                await lead.DeleteLead(id);
                 TempData["message"] = "Lead deleted successfully";
             }
             catch (PodioException ex)
@@ -227,53 +238,6 @@ namespace PodioAspNetSample.Controllers
             }
 
             return RedirectToAction("Index");
-        }
-        
-        /// <summary>
-        /// Convert LeadViewModel to Lead object
-        /// </summary>
-        /// <param name="leadViewModel"></param>
-        /// <returns></returns>
-        public Lead LeadViewModelToLead(LeadViewModel leadViewModel)
-        {
-            var lead = new Lead();
-
-            lead.PodioItemID = leadViewModel.PodioItemID;
-            lead.Company = leadViewModel.Company;
-            lead.ExpectedValue = leadViewModel.ExpectedValue;
-            lead.ProbabilityOfSale = leadViewModel.ProbabilityOfSale;
-            lead.Status = new Tuple<int, string>(leadViewModel.Status, "");
-            lead.NextFollowUp = leadViewModel.NextFollowUp;
-            lead.StreetAddress = leadViewModel.StreetAddress;
-            lead.City = leadViewModel.City;
-            lead.State = leadViewModel.State;
-            lead.Zip = leadViewModel.Zip;
-            lead.Country = leadViewModel.Country;
-
-            if (leadViewModel.LeadContacts != null && leadViewModel.LeadContacts.Any())
-                lead.Contacts = leadViewModel.LeadContacts.ToDictionary(k => k.Value, v => v.Value.ToString());
-
-            if (leadViewModel.LeadOwners != null && leadViewModel.LeadOwners.Any())
-                lead.LeadOwners = leadViewModel.LeadOwners.ToDictionary(k => k.Value, v => v.Value.ToString());
-
-            return lead;
-        }
-
-        public class LoadClient : ActionFilterAttribute, IActionFilter
-        {
-            void IActionFilter.OnActionExecuting(ActionExecutingContext filterContext)
-            {
-                var podioConnection = new PodioConnection();
-                if (podioConnection.IsAuthenticated) 
-                {
-                    ((LeadsController)filterContext.Controller).PodioClient = podioConnection.GetClient();
-                }
-                else
-                {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { action = "Index", controller = "Authorization" }));
-                }
-                this.OnActionExecuting(filterContext);
-            }
         }
     }
 }

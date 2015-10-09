@@ -6,27 +6,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PodioAPI.Utils.Authentication;
+using Newtonsoft.Json;
 
 namespace PodioAspNetSample.Models
 {
     public class PodioConnection
     {
-        public string ClientId { get; set; }
-        public string ClientSecret { get; set; }
-        public string RedirectUrl { get; set; }
+        public static string ClientId { get; set; }
+        public static string ClientSecret { get; set; }
+        public static string RedirectUrl { get; set; }
 
-        public  bool IsAuthenticated
+        public static bool IsAuthenticated
         { 
             get 
             {
                 Podio podio = GetClient();
-
-                //Check if there is a stored access token already present. By default this api client store access token in session
+                //Check if there is a stored access token already present.
                 return podio.IsAuthenticated();
             } 
         }
 
-        public PodioConnection()
+        static PodioConnection()
         {
             ClientId = ConfigurationManager.AppSettings["PodioClientId"];
             ClientSecret = ConfigurationManager.AppSettings["PodioClientSecret"];
@@ -43,15 +43,29 @@ namespace PodioAspNetSample.Models
         /// Return an instance of Podio object
         /// </summary>
         /// <returns></returns>
-        public Podio GetClient()
+        public static Podio GetClient()
         {
-           /* SessionAuthStore is an implementation of PodioAPI.Utils.IAuthStore interface (stores OAuth data in Session) which is provided by Podio-dotnet client libray out of box. 
+           /* SessionAuthStore is an implementation of PodioAPI.Utils.IAuthStore interface (stores OAuth data in DB)
             You can do your own implementation of IAuthStore interface if you need to store access token in database or whereever,
             and pass it in when you initialize Podio class
            */
-            var sessionAuthStore = new SessionAuthStore();
+            var dbAuthStore = new DbOAuthTokenStore();
 
-            var podio = new Podio(ClientId, ClientSecret, sessionAuthStore);
+            var podio = new Podio(ClientId, ClientSecret, dbAuthStore);
+            if(HttpContext.Current.Session["UserId"] != null)
+            {
+                // If a userId is found in session, get the Sored token from database and set it to Podio object.
+                var podioAuthData = new PodioOAuthData();
+                var currentUserId = int.Parse(HttpContext.Current.Session["UserId"].ToString());
+
+                var data = podioAuthData.GetbyUserId(currentUserId);
+                if(data != null)
+                {
+                    var podioOAuthObject = JsonConvert.DeserializeObject<PodioOAuth>(data.OAuthJsonData);
+                    podio.OAuth = podioOAuthObject;
+                }
+            }
+
             return podio;
         }
     }

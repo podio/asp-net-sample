@@ -7,6 +7,7 @@ using PodioAspNetSample.ViewModels;
 using PodioAspNetSample.Models;
 using PodioAPI.Exceptions;
 using PodioAPI;
+using System.Threading.Tasks;
 
 namespace PodioAspNetSample.Controllers
 {
@@ -18,9 +19,8 @@ namespace PodioAspNetSample.Controllers
 
         public AuthorizationController()
         {
-            var podioConnection = new PodioConnection();
-            PodioClient = podioConnection.GetClient();
-            RedirectUrl = podioConnection.RedirectUrl;
+            PodioClient = PodioConnection.GetClient();
+            RedirectUrl = PodioConnection.RedirectUrl;
         }
 
         public ActionResult Index()
@@ -34,13 +34,15 @@ namespace PodioAspNetSample.Controllers
         /// For more details see : https://developers.podio.com/authentication/username_password
         /// </summary>
         [HttpPost]
-        public ActionResult UsernamePasswordAuthentication(UsernamePasswordAuthenticationViewModel model)
+        public async Task<ActionResult> UsernamePasswordAuthentication(UsernamePasswordAuthenticationViewModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    PodioClient.AuthenticateWithPassword(model.Username, model.Password);
+                    var authInfo = await PodioClient.AuthenticateWithPassword(model.Username, model.Password);
+                    Session["UserId"] = authInfo.Ref.Id;
+
                     return RedirectToAction("Index", "Leads");
                 }
                 catch (PodioException ex)
@@ -55,12 +57,13 @@ namespace PodioAspNetSample.Controllers
         /// <summary>
         /// When you have authorized our application in Podio - you can use the code that podio returns. 
         /// </summary>
-        public ActionResult HandleAuthorizationResponse(string code, string error_reason, string error, string error_description)
+        public async Task<ActionResult> HandleAuthorizationResponse(string code, string error_reason, string error, string error_description)
         {
             //If error is empty, that means the authrization is succesfull and the authrization code returns
             if (string.IsNullOrEmpty(error) && !string.IsNullOrEmpty(code))
             {
-                PodioClient.AuthenticateWithAuthorizationCode(code, RedirectUrl);
+                var authInfo = await PodioClient.AuthenticateWithAuthorizationCode(code, RedirectUrl);
+                Session["UserId"] = authInfo.Ref.Id;
                 return RedirectToAction("Index", "Leads");
             }
             else

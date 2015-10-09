@@ -1,5 +1,4 @@
-﻿using DataAnnotationsExtensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,10 +22,8 @@ namespace PodioAspNetSample.ViewModels
 
         public MultiSelectList LeadOwnersOptions { get; set; }
 
-        [Numeric]
         public decimal? ExpectedValue { get; set; }
 
-        [Integer]
         [Range(0, 100)]
         public int? ProbabilityOfSale { get; set; }
 

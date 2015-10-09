@@ -7,6 +7,8 @@ using PodioAPI.Models;
 using PodioAPI.Models.Request;
 using PodioAPI.Utils.ItemFields;
 using PodioAPI.Utils.ApplicationFields;
+using System.Threading.Tasks;
+using PodioAspNetSample.ViewModels;
 
 namespace PodioAspNetSample.Models
 {
@@ -14,50 +16,35 @@ namespace PodioAspNetSample.Models
     {
         #region Private Properties
 
-        private Podio _podio;
         private Podio _Podio
         {
             get
             {
-                if (_podio == null)
-                {
-                    var podioConnection = new PodioConnection();
-                    _podio = podioConnection.GetClient();
-                }
-
-                return _podio;
+                return PodioConnection.GetClient();
             }
         }
 
-        private int _appId;
         private int AppId
         {
             get
             {
-                if (_appId == default(int))
-                {
-                    var appId = ConfigurationManager.AppSettings["AppId"];
-                    if (string.IsNullOrEmpty(appId))
-                        throw new Exception("AppId not set. Please set AppId in Web.config");
+                var appId = ConfigurationManager.AppSettings["AppId"];
+                if (string.IsNullOrEmpty(appId))
+                    throw new Exception("AppId not set. Please set AppId in Web.config");
 
-                    _appId =  int.Parse(ConfigurationManager.AppSettings["AppId"].Trim());
-                }
-
-                return _appId;
+                return int.Parse(appId.Trim());
             }
         }
 
-        private int _spaceId;
         private int SpaceId
         {
             get
             {
-                if (_spaceId == default(int))
-                {
-                    var application = _Podio.ApplicationService.GetApp(AppId, "mini");
-                    _spaceId = application.SpaceId.Value;
-                }
-                return _spaceId;  
+                var spaceId = ConfigurationManager.AppSettings["SpaceId"];
+                if (string.IsNullOrEmpty(spaceId))
+                    throw new Exception("SpaceId not set. Please set SpaceId in Web.config");
+
+                return int.Parse(spaceId.Trim());
             }
         }
         #endregion
@@ -82,7 +69,7 @@ namespace PodioAspNetSample.Models
         #endregion
 
         #region Methods
-        public IEnumerable<Lead> GetAllLeads(DateTime? nextFollowUpFrom = null, DateTime? nextFollowUpTo = null, decimal? potentialRevenueFrom = null, decimal? potentialRevenueTo = null, int? status = null, int? leadOwner = null)
+        public async Task<IEnumerable<Lead>> GetAllLeads(DateTime? nextFollowUpFrom = null, DateTime? nextFollowUpTo = null, decimal? potentialRevenueFrom = null, decimal? potentialRevenueTo = null, int? status = null, int? leadOwner = null)
         {
             List<Lead> leads = new List<Lead>();
             int appId = AppId;
@@ -104,7 +91,7 @@ namespace PodioAspNetSample.Models
 
             filterOption.Filters = filters;
 
-            var filteredContent = _Podio.ItemService.FilterItems(appId,filterOption);
+            var filteredContent = await _Podio.ItemService.FilterItems(appId,filterOption);
             if (filteredContent.Items.Any())
             {
                 //Loop through and convert the podio items collection of Lead objects
@@ -142,10 +129,10 @@ namespace PodioAspNetSample.Models
         /// </summary>
         /// <param name="itemId"></param>
         /// <returns></returns>
-        public Lead GetLead(int itemId)
+        public async Task<Lead> GetLead(int itemId)
         {
             int appId = AppId;
-            var item = _Podio.ItemService.GetItemBasic(itemId);
+            var item = await _Podio.ItemService.GetItemBasic(itemId);
 
             var lead = new Lead();
 
@@ -191,44 +178,46 @@ namespace PodioAspNetSample.Models
             return lead;
         }
 
-        public int CreateLead(Lead lead)
+        public async Task<int> CreateLead(Lead lead)
         {
             int appId = AppId;
             Item item = LeadToPodioItem(lead);
 
-            int itemId = _Podio.ItemService.AddNewItem(appId, item);
+            int itemId = await _Podio.ItemService.AddNewItem(appId, item);
             return itemId;
         }
 
-        public void UpdateLead(Lead lead)
+        public async Task<bool> UpdateLead(Lead lead)
         {
             Item item = LeadToPodioItem(lead);
             item.ItemId = lead.PodioItemID;
 
-            _Podio.ItemService.UpdateItem(item);
+            var revisionId = await _Podio.ItemService.UpdateItem(item);
+            return revisionId.HasValue;
         }
 
-        public void DeleteLead(int itemId)
+        public System.Threading.Tasks.Task DeleteLead(int itemId)
         {
-            _Podio.ItemService.DeleteItem(itemId);
+            return _Podio.ItemService.DeleteItem(itemId);
         }
 
-        public Dictionary<int, string> GetAllStatuses()
+
+        public async Task<Dictionary<int, string>> GetAllStatuses()
         {
-            Application application = _Podio.ApplicationService.GetApp(AppId);
+            Application application = await _Podio.ApplicationService.GetApp(AppId);
 
             var statusField = application.Field<CategoryApplicationField>("status2");
             return statusField.Options.ToDictionary(x => x.Id.Value, y => y.Text);
         }
 
-        public List<Contact> GetSpaceContacts()
+        public Task<List<Contact>> GetSpaceContacts()
         {
-            return _Podio.ContactService.GetSpaceContacts(spaceId: SpaceId, contactType: "space,connection", limit: 20, excludeSelf: false);
+            return _Podio.ContactService.GetSpaceContacts(spaceId: SpaceId);
         }
 
-        public List<Contact> GetUsers()
+        public async Task<List<Contact>> GetUsers()
         {
-            return _Podio.ContactService.GetSpaceContacts(spaceId: SpaceId, contactType: "user", limit: 20, excludeSelf: false);
+            return await _Podio.ContactService.GetSpaceContacts(spaceId: SpaceId);
         }
 
         /// <summary>
@@ -292,6 +281,36 @@ namespace PodioAspNetSample.Models
                 countryField.Value = lead.Country;
 
             return item;
+        }
+
+        /// <summary>
+        /// Convert LeadViewModel to Lead object
+        /// </summary>
+        /// <param name="leadViewModel"></param>
+        /// <returns></returns>
+        public static Lead LeadViewModelToLead(LeadViewModel leadViewModel)
+        {
+            var lead = new Lead();
+
+            lead.PodioItemID = leadViewModel.PodioItemID;
+            lead.Company = leadViewModel.Company;
+            lead.ExpectedValue = leadViewModel.ExpectedValue;
+            lead.ProbabilityOfSale = leadViewModel.ProbabilityOfSale;
+            lead.Status = new Tuple<int, string>(leadViewModel.Status, "");
+            lead.NextFollowUp = leadViewModel.NextFollowUp;
+            lead.StreetAddress = leadViewModel.StreetAddress;
+            lead.City = leadViewModel.City;
+            lead.State = leadViewModel.State;
+            lead.Zip = leadViewModel.Zip;
+            lead.Country = leadViewModel.Country;
+
+            if (leadViewModel.LeadContacts != null && leadViewModel.LeadContacts.Any())
+                lead.Contacts = leadViewModel.LeadContacts.ToDictionary(k => k.Value, v => v.Value.ToString());
+
+            if (leadViewModel.LeadOwners != null && leadViewModel.LeadOwners.Any())
+                lead.LeadOwners = leadViewModel.LeadOwners.ToDictionary(k => k.Value, v => v.Value.ToString());
+
+            return lead;
         }
 
         #endregion
