@@ -1,14 +1,13 @@
 ﻿using PodioAPI;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PodioAPI.Utils.Authentication;
 using Newtonsoft.Json;
+using PodioAspNetSample.Models;
 
-namespace PodioAspNetSample.Models
+namespace PodioAspNetSample.Utils
 {
     public class PodioConnection
     {

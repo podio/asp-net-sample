@@ -9,6 +9,7 @@ using PodioAPI.Utils.ItemFields;
 using PodioAPI.Utils.ApplicationFields;
 using System.Threading.Tasks;
 using PodioAspNetSample.ViewModels;
+using PodioAspNetSample.Utils;
 
 namespace PodioAspNetSample.Models
 {

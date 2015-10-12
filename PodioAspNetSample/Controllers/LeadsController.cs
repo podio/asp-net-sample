@@ -28,12 +28,15 @@ namespace PodioAspNetSample.Controllers
 
             try
             {
-                List<Contact> spaceUsers = await lead.GetUsers();
-                Dictionary<int,string> statuses = await lead.GetAllStatuses();
-                IEnumerable<Lead> leads = await lead.GetAllLeads();
+                var getSpaceUsersTask = lead.GetUsers();
+                var getStatusesTask = lead.GetAllStatuses();
+                var getLeadsTask = lead.GetAllLeads();
 
-                model.LeadOwnersOptions = new SelectList(spaceUsers, "ProfileId", "Name");
-                model.StatusOptions = new SelectList(statuses, "Key", "Value");
+                await System.Threading.Tasks.Task.WhenAll(getSpaceUsersTask, getStatusesTask, getLeadsTask);
+
+                model.LeadOwnersOptions = new SelectList(getSpaceUsersTask.Result, "ProfileId", "Name");
+                model.StatusOptions = new SelectList(getStatusesTask.Result, "Key", "Value");
+                var leads = getLeadsTask.Result;
 
                 if (leads.Any())
                 {
@@ -111,17 +114,15 @@ namespace PodioAspNetSample.Controllers
             try
             {
 
-                var spaceContactsTask = lead.GetSpaceContacts();
-                var spaceUsersTask = lead.GetUsers();
-                var statusesTask = lead.GetAllStatuses();
+                var getSpaceContactsTask = lead.GetSpaceContacts();
+                var getSpaceUsersTask = lead.GetUsers();
+                var getStatusesTask = lead.GetAllStatuses();
 
-                List<Contact> spaceContacts = await spaceContactsTask;
-                List<Contact> spaceUsers = await spaceUsersTask;
-                Dictionary<int, string> statuses = await statusesTask;
+                await System.Threading.Tasks.Task.WhenAll(getSpaceContactsTask, getSpaceUsersTask, getStatusesTask);
 
-                model.LeadContactsOptions = new SelectList(spaceContacts, "ProfileId", "Name");
-                model.LeadOwnersOptions = new SelectList(spaceUsers, "ProfileId", "Name");
-                model.StatusOptions = new SelectList(statuses, "Key", "Value");
+                model.LeadContactsOptions = new SelectList(getSpaceContactsTask.Result, "ProfileId", "Name");
+                model.LeadOwnersOptions = new SelectList(getSpaceUsersTask.Result, "ProfileId", "Name");
+                model.StatusOptions = new SelectList(getStatusesTask.Result, "Key", "Value");
             }
             catch (PodioException ex)
             {
@@ -161,16 +162,15 @@ namespace PodioAspNetSample.Controllers
 
             try
             {
-                var leadToEditTask = lead.GetLead(id);
+                var getLeadToEditTask = lead.GetLead(id);
 
-                var spaceContactsTask = lead.GetSpaceContacts();
-                var spaceUsersTask = lead.GetUsers();
-                var statusesTask = lead.GetAllStatuses();
+                var getSpaceContactsTask = lead.GetSpaceContacts();
+                var getSpaceUsersTask = lead.GetUsers();
+                var getStatusesTask = lead.GetAllStatuses();
 
-                List<Contact> spaceContacts = await spaceContactsTask;
-                List<Contact> spaceUsers = await spaceUsersTask;
-                Dictionary<int, string> statuses = await statusesTask;
-                var leadToEdit = await leadToEditTask;
+                await System.Threading.Tasks.Task.WhenAll(getSpaceContactsTask, getSpaceUsersTask, getStatusesTask, getLeadToEditTask);
+
+                var leadToEdit = getLeadToEditTask.Result;
 
                 IEnumerable<int> selectedLeadContacts = leadToEdit.Contacts != null ? leadToEdit.Contacts.Select(x => x.Key) : null;
                 IEnumerable<int> selectedLeadOwners = leadToEdit.LeadOwners != null ? leadToEdit.LeadOwners.Select(x => x.Key) : null;
@@ -187,9 +187,9 @@ namespace PodioAspNetSample.Controllers
                 model.State = leadToEdit.State;
                 model.Country = leadToEdit.Country;
 
-                model.LeadContactsOptions = new MultiSelectList(spaceContacts, "ProfileId", "Name", selectedLeadContacts);
-                model.LeadOwnersOptions = new MultiSelectList(spaceUsers, "ProfileId", "Name", selectedLeadOwners);
-                model.StatusOptions = new SelectList(statuses, "Key", "Value", selectedStatus);
+                model.LeadContactsOptions = new SelectList(getSpaceContactsTask.Result, "ProfileId", "Name");
+                model.LeadOwnersOptions = new SelectList(getSpaceUsersTask.Result, "ProfileId", "Name");
+                model.StatusOptions = new SelectList(getStatusesTask.Result, "Key", "Value");
 
             }
             catch (PodioException ex)
