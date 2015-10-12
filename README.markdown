@@ -19,13 +19,11 @@ Configuration
 
 Put your API key, secret, App ID in the appSettings section of Web.config. The App ID should be the ID of your instance of the Leads app.
 
-How to find the App ID:
+How to find the App ID and Space ID:
 
-1. Go to your installed Leads app on Podio
-2. Click the wrench icon and select "Developers" 
-or  
-1. Going to an item in that app
-2. Click the small cloud icon on the right side of the gray action bar at the top of the item.
+1. Go to any item in the app
+2. On the header part there is a drop down named Actions
+1. Select 'Developer Info' from the Actions dropdown.
 
 
 Tips
